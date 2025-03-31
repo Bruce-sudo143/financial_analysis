@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>施耐德电气2024财年业绩综合分析报告</title>
+    <meta name="description" content="施耐德电气2024财年业绩综合分析可视化报告">
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        secondary: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            200: '#ddd6fe',
+                            300: '#c4b5fd',
+                            400: '#a78bfa',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                            800: '#5b21b6',
+                            900: '#4c1d95',
+                        },
+                        accent: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        dark: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans SC"', 'system-ui', 'sans-serif'],
+                        serif: ['"Noto Serif SC"', 'serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                    }
+                }
+            },
+            darkMode: 'class',
+        }
+    </script>
+    
+    <!-- Preline UI -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@preline/overlay@1.0.0/dist/overlay.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@preline/overlay@1.0.0/dist/overlay.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Mermaid JS -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            fontFamily: '"Noto Sans SC", sans-serif',
+        });
+    </script>
+    
+    <style>
+        .prose :where(code):not(:where([class~="not-prose"] *)) {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            font-size: 0.875em;
+            font-weight: 600;
+        }
+        .prose :where(code):not(:where([class~="not-prose"] *))::before,
+        .prose :where(code):not(:where([class~="not-prose"] *))::after {
+            content: "";
+        }
+        .chart-container {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .dark .chart-container {
+            background-color: #1e293b;
+        }
+        .hover-grow {
+            transition: transform 0.2s ease-in-out;
+        }
+        .hover-grow:hover {
+            transform: scale(1.02);
+        }
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .news-category {
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .news-category::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            height: 1.5rem;
+            width: 0.25rem;
+            border-radius: 0.125rem;
+        }
+        .news-category-market::before {
+            background-color: #0ea5e9;
+        }
+        .news-category-product::before {
+            background-color: #8b5cf6;
+        }
+        .news-category-tech::before {
+            background-color: #22c55e;
+        }
+        .news-category-client::before {
+            background-color: #f59e0b;
+        }
+        .news-category-marketing::before {
+            background-color: #ec4899;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-dark-900 text-gray-800 dark:text-gray-200 font-sans antialiased transition-colors duration-300">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white/80 dark:bg-dark-800/80 backdrop-blur-md border-b border-gray-200 dark:border-dark-700 shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-primary-600 dark:text-primary-400">
+                    <path fill-rule="evenodd" d="M3 6a3 3 0 013-3h12a3 3 0 013 3v12a3 3 0 01-3 3H6a3 3 0 01-3-3V6zm4.5 7.5a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0v-2.25a.75.75 0 01.75-.75zm3.75-1.5a.75.75 0 00-1.5 0v4.5a.75.75 0 001.5 0V12zm2.25-3a.75.75 0 01.75.75v6.75a.75.75 0 01-1.5 0V9.75A.75.75 0 0113.5 9zm3.75-1.5a.75.75 0 00-1.5 0v9a.75.75 0 001.5 0v-9z" clip-rule="evenodd" />
+                </svg>
+                <h1 class="text-xl font-bold text-gray-900 dark:text-white">施耐德电气2024财年报告</h1>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-dark-700 rounded-lg p-2">
+                    <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                </button>
+                <a href="#report-summary" class="hidden md:inline-block px-3 py-2 text-sm font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">报告摘要</a>
+                <a href="#financial-highlights" class="hidden md:inline-block px-3 py-2 text-sm font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">财务亮点</a>
+                <a href="#regional-performance" class="hidden md:inline-block px-3 py-2 text-sm font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">区域表现</a>
+                <a href="#strategic-moves" class="hidden md:inline-block px-3 py-2 text-sm font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">战略行动</a>
+                <a href="#latest-news" class="hidden md:inline-block px-3 py-2 text-sm font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">最新动态</a>
+                <a href="index.html" class="btn-primary text-black px-6 py-2 rounded-full text-sm font-medium inline-block hover:shadow-md transition">
+                    返回主页 <i class="fas fa-home ml-1"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-primary-600 to-primary-800 text-white py-16 md:py-24">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==')]"></div>
+        </div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 animate-fade-in">施耐德电气2024财年业绩综合分析报告</h1>
+                <p class="text-xl md:text-2xl opacity-90 mb-8 animate-fade-in animation-delay-100">创纪录的业绩与持续增长势头</p>
+                <div class="flex flex-wrap justify-center gap-4 animate-fade-in animation-delay-200">
+                    <div class="bg-white/10 backdrop-blur-sm px-6 py-3 rounded-lg flex items-center">
+                        <i class="fas fa-euro-sign mr-2"></i>
+                        <span>381.53亿欧元营收</span>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm px-6 py-3 rounded-lg flex items-center">
+                        <i class="fas fa-chart-line mr-2"></i>
+                        <span>8.4%有机增长</span>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm px-6 py-3 rounded-lg flex items-center">
+                        <i class="fas fa-percentage mr-2"></i>
+                        <span>18.6% EBITA利润率</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Report Summary -->
+    <section id="report-summary" class="py-16 bg-gray-50 dark:bg-dark-900">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12 fade-in-section">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">报告摘要</h2>
+                    <div class="w-24 h-1 bg-primary-600 mx-auto"></div>
+                </div>
+                
+                <div class="bg-white dark:bg-dark-800 rounded-xl shadow-md overflow-hidden mb-8 hover-grow transition-all duration-300 fade-in-section">
+                    <div class="p-6 md:p-8">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-primary-100 dark:bg-primary-900/30 p-3 rounded-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary-600 dark:text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                                </svg>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">创纪录业绩</h3>
+                                <p class="text-gray-600 dark:text-gray-300">
+                                    施耐德电气在2024财年实现了创纪录的业绩，全年收入达到381.53亿欧元，有机增长8.4%。调整后EBITA达到70.83亿欧元，有机增长14.2%，调整后EBITA利润率提升至18.6%。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-white dark:bg-dark-800 rounded-xl shadow-md overflow-hidden hover-grow transition-all duration-300 fade-in-section">
+                        <div class="p-6">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-accent-100 dark:bg-accent-900/30 p-3 rounded-lg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-accent-600 dark:text-accent-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+                                    </svg>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">能源管理业务</h3>
+                                    <p class="text-gray-600 dark:text-gray-300">
+                                        能源管理业务是增长的主要引擎，营收311.31亿欧元，有机增长11.5%。数据中心、基础设施以及与能源转型相关的终端市场需求强劲。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-dark-800 rounded-xl shadow-md overflow-hidden hover-grow transition-all duration-300 fade-in-section">
+                        <div class="p-6">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-secondary-100 dark:bg-secondary-900/30 p-3 rounded-lg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-secondary-600 dark:text-secondary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                                    </svg>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">工业自动化业务</h3>
+                                    <p class="text-gray-600 dark:text-gray-300">
+                                        工业自动化业务面临挑战，营收70.22亿欧元，有机下降3.7%，但在第四季度显现复苏迹象。离散自动化市场疲软是主要原因。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-dark-800 rounded-xl shadow-md overflow-hidden hover-grow transition-all duration-300 fade-in-section">
+                    <div class="p-6 md:p-8">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-purple-100 dark:bg-purple-900/30 p-3 rounded-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-600 dark:text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">战略转型与展望</h3>
+                                <p class="text-gray-600 dark:text-gray-300">
+                                    公司在软件和服务业务方面持续推进订阅模式转型，并积极进行战略性收购以补充产品组合。展望2025年，施耐德电气预期市场需求持续强劲，并设定了积极的财务目标。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financial Highlights -->
+    <section id="financial-highlights" class="py-16 bg-white dark:bg-dark-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 fade-in-section">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">财务亮点</h2>
+                <div class="w-24 h-1 bg-primary-600 mx-auto"></div>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <!-- Revenue Section -->
+                <div class="mb-16 fade-in-section">
+                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center">
+                        <span class="w-4 h-4 bg-primary-600 rounded-full mr-3"></span>
+                        营收数据及变化
+                    </h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-8 mb-8">
+                        <div class="bg-gray-50 dark:bg-dark-700 p-6 rounded-xl shadow-sm hover-grow">
+                            <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-4">全年营收表现</h4>
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm font-medium text-gray-700 dark:text-gray-300">2024财年总营收</span>
+                                        <span class="text-sm font-bold text-primary-600 dark:text-primary-400">381.53亿欧元</span>
+                                    </div>
+                                    <div class="flex justify-between text-xs text-gray-500 dark:text-gray-400">
+                                        <span>相比2023财年359.02亿欧元</span>
+                                        <span>报告增长 +6.3%</span>
+                                    </div>
+                                </div>
+                                <div class="h-2 bg-gray-200 dark:bg-dark-600 rounded-full overflow-hidden">
+                                    <div class="h-full bg-primary-500 rounded-full" style="width: 106.3%"></div>
+                                </div>
+                                
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm font-medium text-gray-700 dark:text-gray-300">有机增长</span>
+                                        <span class="text-sm font-bold text-green-600 dark:text-green-400">+8.4%</span>
+                                    </div>
+                                    <div class="text-xs text-gray-500 dark:text-gray-400">
+                                        <span>剔除汇率和并购范围变动影响</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 dark:bg-dark-700 p-6 rounded-xl shadow-sm hover-grow">
+                            <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-4">按业务部门划分</h4>
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm font-medium text-gray-700 dark:text-gray-300">能源管理</span>
+                                        <span class="text-sm font-bold text-primary-600 dark:text-primary-400">311.31亿欧元</span>
+                                    </div>
+                                    <div class="flex justify-between text-xs text-gray-500 dark:text-gray-400">
+                                        <span>报告增长 +10.2%</span>
+                                        <span>有机增长 +11.5%</span>
+                                    </div>
+                                    <div class="h-2 bg-gray-200 dark:bg-dark-600 rounded-full overflow-hidden mt-1">
+                                        <div class="h-full bg-primary-500 rounded-full" style="width: 111.5%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm font-medium text-gray-700 dark:text-gray-300">工业自动化</span>
+                                        <span class="text-sm font-bold text-secondary-600 dark:text-secondary-400">70.22亿欧元</span>
+                                    </div>
+                                    <div class="flex justify-between text-xs text-gray-500 dark:text-gray-400">
+                                        <span>报告下降 -8.3%</span>
+                                        <span>有机下降 -3.7%</span>
+                                    </div>
+                                    <div class="h-2 bg-gray-200 dark:bg-dark-600 rounded-full overflow-hidden mt-1">
+                                        <div class="h-full bg-secondary-500 rounded-full" style="width: 96.3%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-4">营收构成</h4>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="chart-container">
+                                <div class="mermaid">
+                                    pie
+                                        title FY2024 营收构成 (€38,153 M)
+                                        "能源管理 (€31,131 M)" : 81.6
+                                        "工业自动化 (€7,022 M)" : 18.4
+                                </div>
+                            </div>
+                            <div class="chart-container">
+                                <div class="mermaid">
+                                    pie
+                                        title Q4 2024 营收构成 (€10,669 M)
+                                        "能源管理 (€8,827 M)" : 82.7
+                                        "工业自动化 (€1,842 M)" : 17.3
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 dark:bg-dark-700 p-6 rounded-xl shadow-sm hover-grow">
+                        <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-4">原因分析</h4>
+                        <div class="prose prose-gray dark:prose-invert max-w-none">
+                            <p>施耐德电气的营收增长主要得益于其在能源管理领域的强大地位，契合了全球电气化、数字化和可持续发展的宏观趋势。数据中心建设热潮、电网升级改造需求、建筑能效法规趋严等因素持续利好其能源管理业务，特别是系统和服务。</p>
+                            <p>工业自动化业务则受到周期性因素（如离散自动化需求放缓和去库存）及部分项目延迟的影响，但在年末呈现企稳回升态势。软件业务的订阅转型按计划进行，虽然短期内影响永久许可收入，但长期看有助于提升经常性收入比例和业务韧性。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Profit Section -->
+                <div class="mb-16 fade-in-section">
+                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center">
+                        <span class="w-4 h-4 bg-primary-600 rounded-full mr-3"></span>
+                        利润数据及变化
+                    </h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-8 mb-8">
+                        <div class="bg-gray-50 dark:bg-dark-700 p-6 rounded-xl shadow-sm hover-grow">
+                            <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-4">调整后EBITA</h4>
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm font-medium text-gray-700 dark:text-gray-300">2024财年</span>
+                                        <span class="text-sm font-bold text-primary-600 dark:text-primary-400">70.83亿欧元</span>
+                                    </div>
+                                    <div class="flex justify-between text-xs text-gray-500 dark:text-gray-400">
+                                        <span>相比2023年64.12亿欧元</span>
+                                        <span>报告增长 +10.5%</span>
+                                    </div>
+                                </div>
+                                <div class="h-2 bg-gray-200 dark:bg-dark-600 rounded-full overflow-hidden">
+                                    <div class="h-full bg-primary-500 rounded-full" style="width: 110.5%"></div>
+                                </div>
+                                
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm font-medium text-gray-700 dark:text-gray-300">有机增长</span>
+                                        <span class="text-sm font-bold text-green-600 dark:text-green-400">+14.2%</span>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm font-medium text-gray-700 dark:text-gray-300">调整后EBITA利润率</span>
+                                        <span class="text-sm font-bold text-primary-600 dark:text-primary-400">18.6%</span>
+                                    </div>
+                                    <div class="flex justify-between text-xs text-gray-500 dark:text-gray-400">
+                                        <span>相比2023年17.9%</span>
+                                        <span>提升 +70个基点</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 dark:bg-dark-700 p-6 rounded-xl shadow-sm hover-grow">
+                            <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-4">净利润</h4>
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm font-medium text-gray-700 dark:text-gray-300">2024财年净利润</span>
+                                        <span class="text-sm font-bold text-primary-600 dark:text-primary-400">42.69亿欧元</span>
+                                    </div>
+                                    <div class="flex justify-between text-xs text-gray-500 dark:text-gray-400">
+                                        <span>相比2023年40.03亿欧元</span>
+                                        <span>增长 +7%</span>
+                                    </div>
+                                </div>
+                                <div class="h-2 bg-gray-200 dark:bg-dark-600 rounded-full overflow-hidden">
+                                    <div class="h-full bg-primary-500 rounded-full" style="width: 107%"></div>
+                                </div>
+                                
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm font-medium text-gray-700 dark:text-gray-300">调整后净利润</span>
+                                        <span class="text-sm font-bold text-green-600 dark:text-green-400">46.64亿欧元</span>
+                                    </div>
+                                    <div class="flex justify-between text-xs text-gray-500 dark:text-gray-400">
+                                        <span>增长 +15% (有机增长+18.4%)</span>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm font-medium text-gray-700 dark:text-gray-300">调整后每股收益</span>
+                                        <span class="text-sm font-bold text-primary-600 dark:text-primary-400">8.32欧元</span>
+                                    </div>
+                                    <div class="flex justify-between text-xs text-gray-500 dark:text-gray-400">
+                                        <span>增长 +15% (有机增长+18.2%)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 dark:bg-dark-700 p-6 rounded-xl shadow-sm hover-grow">
+                        <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-4">原因分析</h4>
+                        <div class="prose prose-gray dark:prose-invert max-w-none">
+                            <p>施耐德的盈利能力提升显著，主要依靠销量增长、有效的定价策略（尤其在系统业务）、持续的生产效率改进以及部分成本杠杆效应。这些积极因素成功抵消了通胀压力、持续的战略投资以及汇率带来的负面影响。</p>
+                            <p>能源管理业务是利润增长和利润率提升的核心动力，而工业自动化业务的盈利能力则受到市场周期性下滑的拖累。Uplight的减值对报告净利润产生了较大影响。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Regional Performance -->
+    <section id="regional-performance" class="py-16 bg-gray-50 dark:bg-dark-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 fade-in-section">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">区域表现</h2>
+                <div class="w-24 h-1 bg-primary-600 mx-auto"></div>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-white dark:bg-dark-800 p-6 rounded-xl shadow-sm hover-grow fade-in-section">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">全年区域表现 (FY2024有机增长)</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">北美 (36%营收)</span>
+                                    <span class="text-sm font-bold text-green-600 dark:text-green-400">+17.6%</span>
+                                </div>
+                                <div class="h-2 bg-gray-200 dark:bg-dark-600 rounded-full overflow-hidden">
+                                    <div class="h-full bg-primary-500 rounded-full" style="width: 100%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">西欧 (24%营收)</span>
+                                    <span class="text-sm font-bold text-blue-600 dark:text-blue-400">+5.0%</span>
+                                </div>
+                                <div class="h-2 bg-gray-200 dark:bg-dark-600 rounded-full overflow-hidden">
+                                    <div class="h-full bg-blue-500 rounded-full" style="width: 28.4%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">亚太 (27%营收)</span>
+                                    <span class="text-sm font-bold text-yellow-600 dark:text-yellow-400">+6.1%</span>
+                                </div>
+                                <div class="h-2 bg-gray-200 dark:bg-dark-600 rounded-full overflow-hidden">
+                                    <div class="h-full bg-yellow-500 rounded-full" style="width: 34.7%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">世界其他地区 (13%营收)</span>
+                                    <span class="text-sm font-bold text-green-600 dark:text-green-400">+18.6%</span>
+                                </div>
+                                <div class="h-2 bg-gray-200 dark:bg-dark-600 rounded-full overflow-hidden">
+                                    <div class="h-full bg-green-500 rounded-full" style="width: 105.7%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-dark-800 p-6 rounded-xl shadow-sm hover-grow fade-in-section">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">第四季度区域表现 (Q4 2024有机增长)</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">北美</span>
+                                    <span class="text-sm font-bold text-green-600 dark:text-green-400">+21.9%</span>
+                                </div>
+                                <div class="text-xs text-gray-500 dark:text-gray-400">
+                                    <span>能源管理 +25.3%, 工业自动化 +0.2%</span>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">西欧</span>
+                                    <span class="text-sm font-bold text-blue-600 dark:text-blue-400">+5.8%</span>
+                                </div>
+                                <div class="text-xs text-gray-500 dark:text-gray-400">
+                                    <span>能源管理 +7.2%, 工业自动化 +0.7%</span>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">亚太</span>
+                                    <span class="text-sm font-bold text-yellow-600 dark:text-yellow-400">+4.6%</span>
+                                </div>
+                                <div class="text-xs text-gray-500 dark:text-gray-400">
+                                    <span>能源管理 +7.9%, 工业自动化 -7.6%</span>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">世界其他地区</span>
+                                    <span class="text-sm font-bold text-green-600 dark:text-green-400">+18.5%</span>
+                                </div>
+                                <div class="text-xs text-gray-500 dark:text-gray-400">
+                                    <span>能源管理 +18.0%, 工业自动化 +20.1%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-8 fade-in-section">
+                    <div class="chart-container">
+                        <div class="mermaid">
+                            graph TD
+                                A[FY2024 各区域有机增长];
+                                A --> B(北美 +17.6%);
+                                A --> C(西欧 +5.0%);
+                                A --> D(亚太 +6.1%);
+                                A --> E(世界其他地区 +18.6%);
+
+                                subgraph Q4 2024 各区域有机增长
+                                    F[北美 +21.9%] -- EM +25.3% & IA +0.2% --> G(美国强劲，IA疲软);
+                                    H[西欧 +5.8%] -- EM +7.2% & IA +0.7% --> I(西/意/法/英良好，德疲软，IA企稳);
+                                    J[亚太 +4.6%] -- EM +7.9% & IA -7.6% --> K(印度/东南亚强，中国疲软，IA下滑);
+                                    L[世界其他地区 +18.5%] -- EM +18.0% & IA +20.1% --> M(MEA/南美强劲，项目驱动，定价);
+                                end
+
+                                style B fill:#9cf
+                                style E fill:#9cf
+                                style C fill:#ccf
+                                style D fill:#ccf
+                                style G fill:#f9f
+                                style I fill:#f9f
+                                style K fill:#f9f
+                                style M fill:#f9f
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-white dark:bg-dark-800 p-6 rounded-xl shadow-sm hover-grow fade-in-section">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">北美</h3>
+                        <div class="prose prose-gray dark:prose-invert max-w-none">
+                            <p><strong>表现:</strong> 增长最为强劲的地区，尤其在Q4显著加速。</p>
+                            <p><strong>驱动因素:</strong> 美国市场表现突出，能源管理业务受益于数据中心建设、基础设施投资（如IRA法案推动）以及改善的供应链执行能力。系统业务需求旺盛。</p>
+                            <p><strong>工业自动化:</strong> 增长乏力，传统自动化业务疲软。美国市场仅低个位数增长，离散自动化因库存正常化而下滑。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-dark-800 p-6 rounded-xl shadow-sm hover-grow fade-in-section">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">西欧</h3>
+                        <div class="prose prose-gray dark:prose-invert max-w-none">
+                            <p><strong>表现:</strong> 实现了稳健的增长，Q4能源管理表现良好。</p>
+                            <p><strong>驱动因素:</strong> 能源管理业务由西班牙和意大利的两位数增长以及法国、英国的高个位数增长引领。德国市场环境具挑战性，出现下滑。</p>
+                            <p><strong>工业自动化:</strong> Q4实现微弱正增长，显示环比改善。离散自动化销售仍为低个位数收缩，德国市场受影响严重。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-dark-800 p-6 rounded-xl shadow-sm hover-grow fade-in-section">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">亚太</h3>
+                        <div class="prose prose-gray dark:prose-invert max-w-none">
+                            <p><strong>表现:</strong> 整体增长稳健，但内部差异较大。Q4工业自动化下滑明显。</p>
+                            <p><strong>驱动因素:</strong> 印度继续保持两位数高速增长，由数据中心、非住宅建筑和数字化产品驱动。中国市场在能源管理方面仅实现低个位数下滑。</p>
+                            <p><strong>工业自动化:</strong> Q4出现显著下滑 (-7.6%)。中国市场低双位数下滑，离散自动化市场疲软持续。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-dark-800 p-6 rounded-xl shadow-sm hover-grow fade-in-section">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">世界其他地区</h3>
+                        <div class="prose prose-gray dark:prose-invert max-w-none">
+                            <p><strong>表现:</strong> 增长最为迅猛，Q4能源管理和工业自动化均实现强劲增长。</p>
+                            <p><strong>驱动因素:</strong> 中东非洲和南美均实现两位数增长。该区域增长受益于高通胀国家的价格上涨措施，但剔除这些国家后的有机增长仍达两位数。</p>
+                            <p><strong>能源管理:</strong> 南美表现强劲（智利的矿业冶金和数据中心项目，巴西的数据中心和建筑项目）。</p>
+                            <p><strong>工业自动化:</strong> 中东非洲强劲增长，在离散、过程与混合及软件领域均有贡献。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategic Moves -->
+    <section id="strategic-moves" class="py-16 bg-white dark:bg-dark-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 fade-in-section">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">战略行动与行业判断</h2>
+                <div class="w-24 h-1 bg-primary-600 mx-auto"></div>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="mb-16 fade-in-section">
+                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center">
+                        <span class="w-4 h-4 bg-primary-600 rounded-full mr-3"></span>
+                        重大并购事件
+                    </h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-gray-50 dark:bg-dark-700 p-6 rounded-xl shadow-sm hover-grow">
+                            <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-4">已完成的收购</h4>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 bg-green-100 dark:bg-green-900/30 p-2 rounded-lg">
+                                        <i class="fas fa-check text-green-600 dark:text-green-400"></i>
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-sm font-medium text-gray-900 dark:text-white">EcoAct</p>
+                                        <p class="text-xs text-gray-500 dark:text-gray-400">气候咨询和净零解决方案提供商，补充可持续发展业务</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 bg-green-100 dark:bg-green-900/30 p-2 rounded-lg">
+                                        <i class="fas fa-check text-green-600 dark:text-green-400"></i>
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-sm font-medium text-gray-900 dark:text-white">Planon</p>
+                                        <p class="text-xs text-gray-500 dark:text-gray-400">智能可持续建筑管理软件提供商，增强建筑数字化能力</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 dark:bg-dark-700 p-6 rounded-xl shadow-sm hover-grow">
+                            <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-4">已宣布即将完成的收购</h4>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 bg-blue-100 dark:bg-blue-900/30 p-2 rounded-lg">
+                                        <i class="fas fa-hourglass-half text-blue-600 dark:text-blue-400"></i>
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-sm font-medium text-gray-900 dark:text-white">Motivair Corporation</p>
+                                        <p class="text-xs text-gray-500 dark:text-gray-400">专注于液冷技术的公司，加强数据中心热管理解决方案</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 dark:bg-dark-700 p-6 rounded-xl shadow-sm hover-grow mb-8">
+                        <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-4">财务影响</h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">Q4 2024 收并购/剥离净影响</p>
+                                <p class="text-lg font-semibold text-gray-900 dark:text-white">-800万欧元</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">对收入影响</p>
+                                <p class="text-lg font-semibold text-gray-900 dark:text-white">-0.1%</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">FY 2025 预计收入贡献</p>
+                                <p class="text-lg font-semibold text-gray-900 dark:text-white">+1亿欧元</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">对调整后EBITA利润率影响</p>
+                                <p class="text-lg font-semibold text-gray-900 dark:text-white">基本持平</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="prose prose-gray dark:prose-invert max-w-none bg-gray-50 dark:bg-dark-700 p-6 rounded-xl shadow-sm hover-grow">
+                        <h4>原因分析</h4>
+                        <p>施耐德的并购活动显示出其战略聚焦：通过收购EcoAct和Planon强化其在可持续发展咨询服务和智能建筑软件领域的能力，这两者都是高增长且与核心业务协同的领域。收购Motivair则是为了抓住数据中心液冷需求的增长机遇。出售非核心资产（如传感器业务和Autogrid）有助于优化资源配置。整体而言，并购策略旨在加强其在电气化、数字化和可持续发展三大趋势中的领导地位。</p>
+                    </div>
+                </div>
+                
+                <div class="mb-16 fade-in-section">
+                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center">
+                        <span class="w-4 h-4 bg-primary-600 rounded-full mr-3"></span>
+                        最新产品情况
+                    </h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-gray-50 dark:bg-dark-700 p-6 rounded-xl shadow-sm hover-grow">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-primary-100 dark:bg-primary-900/30 p-3 rounded-lg">
+                                    <i class="fas fa-cubes text-primary-600 dark:text-primary-400"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-2">EcoStruxure 平台</h4>
+                                    <p class="text-gray-600 dark:text-gray-300 text-sm">
+                                        作为施耐德物联网架构的核心，是整合硬件、软件和服务的关键，应用于建筑、数据中心、工业和基础设施等多个领域。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 dark:bg-dark-700 p-6 rounded-xl shadow-sm hover-grow">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-purple-100 dark:bg-purple-900/30 p-3 rounded-lg">
+                                    <i class="fas fa-laptop-code text-purple-600 dark:text-purple-400"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-2">独立软件组合</h4>
+                                    <p class="text-gray-600 dark:text-gray-300 text-sm">
+                                        AVEVA, ETAP, RIB Software等软件业务正在向订阅/SaaS模式转型，AVEVA在工业软件领域是领导者。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 dark:bg-dark-700 p-6 rounded-xl shadow-sm hover-grow">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-blue-100 dark:bg-blue-900/30 p-3 rounded-lg">
+                                    <i class="fas fa-database text-blue-600 dark:text-blue-400"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-2">数据中心解决方案</h4>
+                                    <p class="text-gray-600 dark:text-gray-300 text-sm">
+                                        端到端产品组合的优势，并通过收购Motivair明确指向了液冷技术的重要性，以应对更高功率密度服务器的散热需求。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 dark:bg-dark-700 p-6 rounded-xl shadow-sm hover-grow">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-green-100 dark:bg-green-900/30 p-3 rounded-lg">
+                                    <i class="fas fa-leaf text-green-600 dark:text-green-400"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-2">可持续发展相关产品</h4>
+                                    <p class="text-gray-600 dark:text-gray-300 text-sm">
+                                        包括帮助客户减少碳排放的能源管理产品、软件和服务，以及PPA（购电协议）咨询服务等。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="prose prose-gray dark:prose-invert max-w-none bg-gray-50 dark:bg-dark-700 p-6 rounded-xl shadow-sm hover-grow">
+                        <h4>原因分析</h4>
+                        <p>施耐德的产品策略围绕其核心能力——电气化和自动化，并深度融合数字化和可持续发展。重点在于提供整合的解决方案（而非单一产品），通过EcoStruxure平台实现互联互通和数据智能。软件和服务（尤其是经常性收入）的战略地位日益提升。同时，公司紧跟市场热点，如数据中心的液冷需求、可持续发展服务等，并通过并购快速补强相关能力。</p>
+                    </div>
+                </div>
+                
+                <div class="fade-in-section">
+                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center">
+                        <span class="w-4 h-4 bg-primary-600 rounded-full mr-3"></span>
+                        行业判断与未来展望
+                    </h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-gray-50 dark:bg-dark-700 p-6 rounded-xl shadow-sm hover-grow">
+                            <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-4">近期主要行动</h4>
+                            <ul class="space-y-3 text-sm text-gray-600 dark:text-gray-300">
+                                <li class="flex items-start">
+                                    <span class="flex-shrink-0 h-5 w-5 text-primary-600 dark:text-primary-400 mr-2 mt-0.5">•</span>
+                                    <span>巩固能源管理核心优势：大力投入并受益于数据中心、基础设施升级、建筑能效等高增长领域</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="flex-shrink-0 h-5 w-5 text-primary-600 dark:text-primary-400 mr-2 mt-0.5">•</span>
+                                    <span>积极管理工业自动化周期：承认离散自动化的短期挑战，但已看到复苏迹象</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="flex-shrink-0 h-5 w-5 text-primary-600 dark:text-primary-400 mr-2 mt-0.5">•</span>
+                                    <span>加速数字化转型：强力推进软件业务向订阅模式转型，提升经常性收入比例</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="flex-shrink-0 h-5 w-5 text-primary-600 dark:text-primary-400 mr-2 mt-0.5">•</span>
+                                    <span>战略性投资与并购：持续高强度投入研发（占收入5.6%），扩大产能，并通过精准并购补充产品组合</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="flex-shrink-0 h-5 w-5 text-primary-600 dark:text-primary-400 mr-2 mt-0.5">•</span>
+                                    <span>深化可持续发展领导力：不仅自身设定并超额完成可持续发展目标，还将其作为核心业务战略</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 dark:bg-dark-700 p-6 rounded-xl shadow-sm hover-grow">
+                            <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-4">对行业的最新判断</h4>
+                            <ul class="space-y-3 text-sm text-gray-600 dark:text-gray-300">
+                                <li class="flex items-start">
+                                    <span class="flex-shrink-0 h-5 w-5 text-green-600 dark:text-green-400 mr-2 mt-0.5">•</span>
+                                    <span>整体需求强劲：预期2025年市场需求将保持强劲和动态，所有四个终端市场都将驱动增长</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="flex-shrink-0 h-5 w-5 text-green-600 dark:text-green-400 mr-2 mt-0.5">•</span>
+                                    <span>能源管理持续引领：系统业务需求将持续强劲，尤其是在能源管理领域</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="flex-shrink-0 h-5 w-5 text-green-600 dark:text-green-400 mr-2 mt-0.5">•</span>
+                                    <span>工业自动化复苏：预期离散自动化市场将出现需求复苏，但增长可能更偏重于下半年</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="flex-shrink-0 h-5 w-5 text-green-600 dark:text-green-400 mr-2 mt-0.5">•</span>
+                                    <span>软件和服务高增长：软件订阅转型将进一步推进，服务业务将实现强劲增长</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="flex-shrink-0 h-5 w-5 text-green-600 dark:text-green-400 mr-2 mt-0.5">•</span>
+                                    <span>区域增长引擎：所有四个地区都将贡献增长，但美国、印度、中东和非洲将是主要的增长引领者</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 dark:bg-dark-700 p-6 rounded-xl shadow-sm hover-grow mb-8">
+                        <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-4">未来目标</h4>
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div class="bg-white dark:bg-dark-800 p-4 rounded-lg">
+                                <p class="text-sm text-gray-500 dark:text-gray-400">2025年目标</p>
+                                <p class="text-lg font-semibold text-gray-900 dark:text-white">调整后EBITA有机增长10%-15%</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">营收有机增长7%-10%，利润率有机提升50-80bps</p>
+                            </div>
+                            <div class="bg-white dark:bg-dark-800 p-4 rounded-lg">
+                                <p class="text-sm text-gray-500 dark:text-gray-400">2024-2027年中期目标</p>
+                                <p class="text-lg font-semibold text-gray-900 dark:text-white">有机营收CAGR 7%-10%</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">调整后EBITA利润率每年有机扩张约50个基点</p>
+                            </div>
+                            <div class="bg-white dark:bg-dark-800 p-4 rounded-lg">
+                                <p class="text-sm text-gray-500 dark:text-gray-400">长期目标</p>
+                                <p class="text-lg font-semibold text-gray-900 dark:text-white">"25公司"</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">有机营收增长率% + 调整后EBITA利润率% ≥ 25</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="prose prose-gray dark:prose-invert max-w-none bg-gray-50 dark:bg-dark-700 p-6 rounded-xl shadow-sm hover-grow">
+                        <h4>结论</h4>
+                        <p>施耐德电气作为UPS行业的强有力竞争对手，在2024年展现了强大的经营韧性和增长潜力。其战略清晰地聚焦于能源管理、数字化和可持续发展三大领域，并通过有效的执行、持续的投资和精准的并购不断巩固市场地位。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest News Section -->
+    <section id="latest-news" class="py-16 bg-gray-50 dark:bg-dark-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 fade-in-section">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">最新新闻动态</h2>
+                <div class="w-24 h-1 bg-primary-600 mx-auto"></div>
+            </div>
+
+            <div class="max-w-6xl mx-auto">
+                <!-- Market News -->
+                <div class="mb-16 fade-in-section">
+                    <div class="news-category news-category-market mb-6">
+                        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">市场动态</h3>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-white dark:bg-dark-800 p-6 rounded-xl shadow-sm hover-grow">
+                            <div class="flex items-start mb-4">
+                                <div class="flex-shrink-0 bg-primary-100 dark:bg-primary-900/30 p-3 rounded-lg">
+                                    <i class="fas fa-chart-line text-primary-600 dark:text-primary-400"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white">强劲增长，数据中心是核心驱动力</h4>
+                                </div>
+                            </div>
+                            <div class="prose prose-gray dark:prose-invert max-w-none">
+                                <p>施耐德电气2024年财报显示收入和盈利强劲增长，超出预期，尤其是在能源管理业务方面（实现两位数增长），主要得益于北美数据中心投资的激增。公司积压订单创历史新高（214亿欧元），并计划到2027年投资约20亿欧元扩大产能，尤其是在北美。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-dark-800 p-6 rounded-xl shadow-sm hover-grow">
+                            <div class="flex items-start mb-4">
+                                <div class="flex-shrink-0 bg-primary-100 dark:bg-primary-900/30 p-3 rounded-lg">
+                                    <i class="fas fa-microchip text-primary-600 dark:text-primary-400"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white">AI驱动数据中心需求</h4>
+                                </div>
+                            </div>
+                            <div class="prose prose-gray dark:prose-invert max-w-none">
+                                <p>公司高管认为AI投资热潮将支持其数据中心和网络业务（占2024年终端市场风险敞口的24%）到2027年实现年均10%以上的增长。纯数据中心业务占其终端市场风险敞口的20%，其中超大规模数据中心占近一半。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-dark-800 p-6 rounded-xl shadow-sm hover-grow">
+                            <div class="flex items-start mb-4">
+                                <div class="flex-shrink-0 bg-primary-100 dark:bg-primary-900/30 p-3 rounded-lg">
+                                    <i class="fas fa-globe-americas text-primary-600 dark:text-primary-400"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white">全球扩张，重点布局印度和北美</h4>
+                                </div>
+                            </div>
+                            <div class="prose prose-gray dark:prose-invert max-w-none">
+                                <p><strong>印度：</strong> 宣布将在印度新建三个制造工厂（加尔各答、海得拉巴、艾哈迈德讷格尔），以扩大生产能力。此前已宣布投资3.85亿美元（约3200亿卢比）增加制造空间。印度被视为关键市场和全球增长的战略枢纽，关注数字化、可持续性和基础设施现代化。</p>
+                                <p><strong>北美：</strong> 持续投资扩大产能，如德克萨斯州的模块化数据中心解决方案工厂、墨西哥的低压配电盘工厂和田纳西州的开关设备工厂。目标是实现各地区约90%的销售额在本地采购和生产。北美地区目前为83%。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-dark-800 p-6 rounded-xl shadow-sm hover-grow">
+                            <div class="flex items-start mb-4">
+                                <div class="flex-shrink-0 bg-primary-100 dark:bg-primary-900/30 p-3 rounded-lg">
+                                    <i class="fas fa-coins text-primary-600 dark:text-primary-400"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white">金融市场表现</h4>
+                                </div>
+                            </div>
+                            <div class="prose prose-gray dark:prose-invert max-w-none">
+                                <p>美国银行(BofA)将施耐德电气评级从"跑输大盘"上调至"中性"，认为其年底表现强劲，建筑业复苏和数据中心长期需求将提供支持。多家投行（如DZ Bank, Berenberg, Barclays, Citi, Morgan Stanley）调整了其评级或目标价（有升有降，需注意具体时间和原因）。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product News -->
+                <div class="mb-16 fade-in-section">
+                    <div class="news-category news-category-product mb-6">
+                        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">产品动态</h3>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-white dark:bg-dark-800 p-6 rounded-xl shadow-sm hover-grow">
+                            <div class="flex items-start mb-4">
+                                <div class="flex-shrink-0 bg-secondary-100 dark:bg-secondary-900/30 p-3 rounded-lg">
+                                    <i class="fas fa-database text-secondary-600 dark:text-secondary-400"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white">数据中心电源与配电</h4>
+                                </div>
+                            </div>
+                            <div class="prose prose-gray dark:prose-invert max-w-none">
+                                <ul>
+                                    <li>在美国马萨诸塞州的全球研发中心开设新的数据中心实验室，用于测试面向AI数据中心市场的高压电力系统（如PDU - 配电单元）。</li>
+                                    <li>发布了行业内最紧凑、高密度的UPS（不间断电源）——Galaxy VXL系列（500-1250kW），专为AI就绪数据中心和大规模电力负载设计，可节省52%的空间，功率密度高达1042 kW/m²。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-dark-800 p-6 rounded-xl shadow-sm hover-grow">
+                            <div class="flex items-start mb-4">
+                                <div class="flex-shrink-0 bg-secondary-100 dark:bg-secondary-900/30 p-3 rounded-lg">
+                                    <i class="fas fa-home text-secondary-600 dark:text-secondary-400"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white">智能家居/楼宇解决方案</h4>
+                                </div>
+                            </div>
+                            <div class="prose prose-gray dark:prose-invert max-w-none">
+                                <ul>
+                                    <li>推出新的智能电源管理解决方案——Square D QO智能面板（含Smart Power Manager功能），通过软件管理避免家庭进行昂贵的400安培电力服务升级，满足家庭电气化（如电动汽车充电桩、电磁炉、热泵）带来的更高电力需求。</li>
+                                    <li>发布SpaceLogic™触摸屏房间控制器，集恒温器易用性与直接数字控制能力于一体，集成HVAC、照明、百叶窗控制，并内置边缘AI进行优化，旨在提高商业楼宇、酒店、医院和学校的能源效率和居住舒适度。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-dark-800 p-6 rounded-xl shadow-sm hover-grow">
+                            <div class="flex items-start mb-4">
+                                <div class="flex-shrink-0 bg-secondary-100 dark:bg-secondary-900/30 p-3 rounded-lg">
+                                    <i class="fas fa-bolt text-secondary-600 dark:text-secondary-400"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white">微电网解决方案</h4>
+                                </div>
+                            </div>
+                            <div class="prose prose-gray dark:prose-invert max-w-none">
+                                <ul>
+                                    <li>在美国马萨诸塞州的全球研发中心开设新的微电网实验室，用于模拟、测试和验证真实世界中的微电网情景，加速弹性高效电力解决方案的交付。该实验室可测试EcoStruxure Microgrid Flex解决方案和新的电池储能系统（BESS）。</li>
+                                    <li>已设计和部署超过350个先进微电网项目（如纽约肯尼迪国际机场新航站楼项目）。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-dark-800 p-6 rounded-xl shadow-sm hover-grow">
+                            <div class="flex items-start mb-4">
+                                <div class="flex-shrink-0 bg-secondary-100 dark:bg-secondary-900/30 p-3 rounded-lg">
+                                    <i class="fas fa-charging-station text-secondary-600 dark:text-secondary-400"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white">电动汽车充电 (eMobility)</h4>
+                                </div>
+                            </div>
+                            <div class="prose prose-gray dark:prose-invert max-w-none">
+                                <ul>
+                                    <li>提供从现场评估、安装到充电桩（交流/直流）及实时管理的端到端电动汽车充电和能源管理解决方案。</li>
+                                    <li>关注解决充电便利性问题，特别是针对没有私人车道的用户（如路边充电），并与政府和地方议会合作提高充电设施的可及性和经济性。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Technology News -->
+                <div class="mb-16 fade-in-section">
+                    <div class="news-category news-category-tech mb-6">
+                        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">技术动态</h3>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-white dark:bg-dark-800 p-6 rounded-xl shadow-sm hover-grow">
+                            <div class="flex items-start mb-4">
+                                <div class="flex-shrink-0 bg-accent-100 dark:bg-accent-900/30 p-3 rounded-lg">
+                                    <i class="fas fa-brain text-accent-600 dark:text-accent-400"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white">AI与数据中心技术</h4>
+                                </div>
+                            </div>
+                            <div class="prose prose-gray dark:prose-invert max-w-none">
+                                <ul>
+                                    <li><strong>与Nvidia深度合作：</strong> 联合开发针对Nvidia GB200 NVL72和Blackwell芯片优化的数据中心参考设计，支持高达132kW/机架的液冷高密度AI集群，提供液-液冷却分配单元(CDU)和直接芯片(DTC)液冷系统选项。</li>
+                                    <li><strong>液冷技术布局：</strong> 认识到高密度AI芯片（如Nvidia Blackwell）的散热挑战，大力发展液冷技术。宣布收购液冷和热管理系统提供商Motivair 75%的股份，以增强其液冷产品组合。强调混合冷却（液冷+风冷）和两相液冷（如直接芯片冷却）将是未来趋势。</li>
+                                    <li><strong>研发投入：</strong> 2024年在全球研发投入22.6亿欧元（约24亿美元），在马萨诸塞州的Andover研发中心设立新的数据中心和微电网实验室，提升测试和验证能力。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-dark-800 p-6 rounded-xl shadow-sm hover-grow">
+                            <div class="flex items-start mb-4">
+                                <div class="flex-shrink-0 bg-accent-100 dark:bg-accent-900/30 p-3 rounded-lg">
+                                    <i class="fas fa-robot text-accent-600 dark:text-accent-400"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white">AI在工业自动化和安全领域的应用</h4>
+                                </div>
+                            </div>
+                            <div class="prose prose-gray dark:prose-invert max-w-none">
+                                <ul>
+                                    <li>公布一项新专利，利用AI改进过程安全（Process Safety），可自动/半自动分析潜在过程危害并验证保护机制，旨在通过AI使HAZOP（危险与可操作性分析）研究更严谨，超越人力可能。这是将AI引入功能安全（Functional Safety）的战略举措的一部分。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-dark-800 p-6 rounded-xl shadow-sm hover-grow">
+                            <div class="flex items-start mb-4">
+                                <div class="flex-shrink-0 bg-accent-100 dark:bg-accent-900/30 p-3 rounded-lg">
+                                    <i class="fas fa-building text-accent-600 dark:text-accent-400"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white">AI在能源管理和楼宇控制的应用</h4>
+                                </div>
+                            </div>
+                            <div class="prose prose-gray dark:prose-invert max-w-none">
+                                <ul>
+                                    <li>在其SpaceLogic™触摸屏房间控制器中嵌入边缘AI (AI on the edge)，无需云连接即可动态优化房间环境（温湿度、照明等）至ASHRAE 55舒适标准，提高能效并减少用户投诉。</li>
+                                    <li>发布研究报告探讨AI对电力消耗的潜在影响（多种情景预测），以及AI驱动的HVAC系统如何显著提高建筑能效（瑞典教育建筑案例）。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-dark-800 p-6 rounded-xl shadow-sm hover-grow">
+                            <div class="flex items-start mb-4">
+                                <div class="flex-shrink-0 bg-accent-100 dark:bg-accent-900/30 p-3 rounded-lg">
+                                    <i class="fas fa-solar-panel text-accent-600 dark:text-accent-400"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white">微电网与分布式能源技术</h4>
+                                </div>
+                            </div>
+                            <div class="prose prose-gray dark:prose-invert max-w-none">
+                                <ul>
+                                    <li>新的微电网实验室具备模拟和测试各种分布式能源（DERs，如太阳能、备用发电机、电池储能、电动汽车充电）的能力，可预测试和验证EcoStruxure™ Microgrid Flex解决方案。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Client News -->
+                <div class="mb-16 fade-in-section">
+                    <div class="news-category news-category-client mb-6">
+                        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">客户动态</h3>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-white dark:bg-dark-800 p-6 rounded-xl shadow-sm hover-grow">
+                            <div class="flex items-start mb-4">
+                                <div class="flex-shrink-0 bg-yellow-100 dark:bg-yellow-900/30 p-3 rounded-lg">
+                                    <i class="fas fa-server text-yellow-600 dark:text-yellow-400"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white">数据中心客户</h4>
+                                </div>
+                            </div>
+                            <div class="prose prose-gray dark:prose-invert max-w-none">
+                                <p>重点服务对象，包括超大规模数据中心运营商和企业客户，满足其对高密度计算、AI基础设施和液冷的需求。与Nvidia的合作旨在为共同客户提供优化的解决方案。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-dark-800 p-6 rounded-xl shadow-sm hover-grow">
+                            <div class="flex items-start mb-4">
+                                <div class="flex-shrink-0 bg-yellow-100 dark:bg-yellow-900/30 p-3 rounded-lg">
+                                    <i class="fas fa-building text-yellow-600 dark:text-yellow-400"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white">建筑行业客户（住宅/商业）</h4>
+                                </div>
+                            </div>
+                            <div class="prose prose-gray dark:prose-invert max-w-none">
+                                <ul>
+                                    <li>面向住宅建筑商推出Square D QO智能面板解决方案，帮助他们建造满足电气化需求的"未来就绪型"住宅，同时避免昂贵的电网服务升级成本。</li>
+                                    <li>面向商业办公楼、酒店、医院、学校等推出SpaceLogic™房间控制器，满足其对能效、舒适度和运营效率的需求。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-dark-800 p-6 rounded-xl shadow-sm hover-grow">
+                            <div class="flex items-start mb-4">
+                                <div class="flex-shrink-0 bg-yellow-100 dark:bg-yellow-900/30 p-3 rounded-lg">
+                                    <i class="fas fa-industry text-yellow-600 dark:text-yellow-400"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white">工业客户</h4>
+                                </div>
+                            </div>
+                            <div class="prose prose-gray dark:prose-invert max-w-none">
+                                <p>提供工业自动化解决方案，并利用AI提升过程安全。与Alstom（交通运输）合作开发可持续交通解决方案。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-dark-800 p-6 rounded-xl shadow-sm hover-grow">
+                            <div class="flex items-start mb-4">
+                                <div class="flex-shrink-0 bg-yellow-100 dark:bg-yellow-900/30 p-3 rounded-lg">
+                                    <i class="fas fa-network-wired text-yellow-600 dark:text-yellow-400"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white">电信/光纤客户</h4>
+                                </div>
+                            </div>
+                            <div class="prose prose-gray dark:prose-invert max-w-none">
+                                <p>帮助Blue Stream Fiber（光纤公司）通过EcoConsult服务评估和优化其数据中心设施（位于佛罗里达），增强运营弹性和容量，支持其业务增长。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Marketing News -->
+                <div class="fade-in-section">
+                    <div class="news-category news-category-marketing mb-6">
+                        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">营销动态</h3>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-white dark:bg-dark-800 p-6 rounded-xl shadow-sm hover-grow">
+                            <div class="flex items-start mb-4">
+                                <div class="flex-shrink-0 bg-pink-100 dark:bg-pink-900/30 p-3 rounded-lg">
+                                    <i class="fas fa-calendar-alt text-pink-600 dark:text-pink-400"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white">行业展会与活动</h4>
+                                </div>
+                            </div>
+                            <div class="prose prose-gray dark:prose-invert max-w-none">
+                                <ul>
+                                    <li>在NAHB国际建筑商展（IBS 2025）上首次亮相Square D QO智能面板的Smart Power Manager功能。</li>
+                                    <li>在AHR Expo（国际空调、供暖、制冷博览会）上推出SpaceLogic™触摸屏房间控制器。</li>
+                                    <li>积极参与世界经济论坛（WEF）年会，倡导加强合作以推广可持续技术（能源效率、自动化），高管参与讨论。</li>
+                                    <li>参与IEA（国际能源署）全球能源与人工智能大会，发布相关研究报告，探讨AI对能源的影响。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-dark-800 p-6 rounded-xl shadow-sm hover-grow">
+                            <div class="flex items-start mb-4">
+                                <div class="flex-shrink-0 bg-pink-100 dark:bg-pink-900/30 p-3 rounded-lg">
+                                    <i class="fas fa-award text-pink-600 dark:text-pink-400"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white">奖项与认可</h4>
+                                </div>
+                            </div>
+                            <div class="prose prose-gray dark:prose-invert max-w-none">
+                                <ul>
+                                    <li>再次被Corporate Knights评为"全球最具可持续性公司"，并强调这一成就，提升品牌形象。</li>
+                                    <li>高管Aamir Paul（北美运营总裁）被任命为美国全国制造商协会（NAM）董事会成员，提升行业影响力。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-dark-800 p-6 rounded-xl shadow-sm hover-grow">
+                            <div class="flex items-start mb-4">
+                                <div class="flex-shrink-0 bg-pink-100 dark:bg-pink-900/30 p-3 rounded-lg">
+                                    <i class="fas fa-file-alt text-pink-600 dark:text-pink-400"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white">内容营销与研究发布</h4>
+                                </div>
+                            </div>
+                            <div class="prose prose-gray dark:prose-invert max-w-none">
+                                <ul>
+                                    <li>发布关于AI对能源消耗影响及AI在HVAC中应用的系列研究报告（来自其可持续发展研究院SRI），展示思想领导力。</li>
+                                    <li>发布与Nvidia合作的数据中心参考设计，展示其在AI基础设施方面的能力。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-dark-800 p-6 rounded-xl shadow-sm hover-grow">
+                            <div class="flex items-start mb-4">
+                                <div class="flex-shrink-0 bg-pink-100 dark:bg-pink-900/30 p-3 rounded-lg">
+                                    <i class="fas fa-leaf text-pink-600 dark:text-pink-400"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900 dark:text-white">可持续发展传播</h4>
+                                </div>
+                            </div>
+                            <div class="prose prose-gray dark:prose-invert max-w-none">
+                                <ul>
+                                    <li>持续发布可持续发展影响(SSI)报告，强调其在实现ESG目标方面的进展（如超额完成2024年目标，供应商减排40%，帮助超5340万人获得清洁电力，培训超82万人等）。</li>
+                                    <li>强调与Alstom合作，共同致力于降低交通运输行业环境影响。</li>
+                                    <li>施耐德电气基金会庆祝成立25周年，强调其在青年赋权和社会公益方面的贡献。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 dark:bg-dark-900 border-t border-gray-200 dark:border-dark-700">
+        <div class="container mx-auto px-4 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-sm text-gray-600 dark:text-gray-400">© 2024 施耐德电气分析报告. 保留所有权利.</p>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <p class="text-sm text-gray-600 dark:text-gray-400">作者: 邓晨阳</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 p-3 bg-primary-600 text-white rounded-full shadow-lg opacity-0 invisible transition-all duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
+        </svg>
+    </button>
+
+    <script>
+        // Dark mode toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!localStorage.getItem('color-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const fadeInSections = document.querySelectorAll('.fade-in-section');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        fadeInSections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Hover effects
+        document.querySelectorAll('.hover-grow').forEach(element => {
+            element.addEventListener('mouseenter', function() {
+                this.classList.add('transform', 'scale-105');
+            });
+            element.addEventListener('mouseleave', function() {
+                this.classList.remove('transform', 'scale-105');
+            });
+        });
+    </script>
+</body>
+</html>

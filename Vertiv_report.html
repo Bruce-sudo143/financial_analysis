@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>维谛技术(Vertiv) 2024年财报分析报告</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Preline UI -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@preline/overlay@1.0.0/index.min.css">
+    <!-- Mermaid JS -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .btn-hover:hover {
+            transform: scale(1.05);
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        secondary: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        },
+                        accent: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            200: '#ddd6fe',
+                            300: '#c4b5fd',
+                            400: '#a78bfa',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                            800: '#5b21b6',
+                            900: '#4c1d95',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans SC', 'sans-serif'],
+                    },
+                }
+            },
+            darkMode: 'class',
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
+    <!-- Header -->
+    <header class="bg-white dark:bg-gray-800 shadow-sm">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <div class="bg-primary-600 text-white p-3 rounded-lg mr-4">
+                        <i class="fas fa-chart-line text-2xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold">维谛技术(Vertiv) 2024年全年财报分析</h1>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">竞争对手分析 · 2024年3月</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:inline"></i>
+                    </button>
+                    <a href="#" class="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors btn-hover">
+                        <i class="fas fa-download mr-2"></i>下载报告
+                    </a>
+                    <a href="index.html" class="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors btn-hover">
+                        <i class="fas fa-home mr-2"></i>返回主页
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Executive Summary -->
+        <section class="mb-12 fade-in">
+            <div class="bg-gradient-to-r from-primary-500 to-accent-600 text-white rounded-xl p-6 shadow-lg">
+                <h2 class="text-2xl font-bold mb-4">核心摘要</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm">
+                        <h3 class="font-semibold mb-2">营收表现</h3>
+                        <p class="text-3xl font-bold mb-1">80.118亿<span class="text-sm">美元</span></p>
+                        <p class="text-sm">同比增长16.7%</p>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm">
+                        <h3 class="font-semibold mb-2">营业利润</h3>
+                        <p class="text-3xl font-bold mb-1">13.674亿<span class="text-sm">美元</span></p>
+                        <p class="text-sm">同比增长56.8%</p>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm">
+                        <h3 class="font-semibold mb-2">积压订单</h3>
+                        <p class="text-3xl font-bold mb-1">71.788亿<span class="text-sm">美元</span></p>
+                        <p class="text-sm">同比增长29.9%</p>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <p class="mb-2"><i class="fas fa-check-circle mr-2"></i>AI数据中心需求成为主要增长引擎，液冷技术成为战略重点</p>
+                    <p class="mb-2"><i class="fas fa-check-circle mr-2"></i>全球三大区域均实现双位数增长，美洲和EMEA表现尤为突出</p>
+                    <p class="mb-2"><i class="fas fa-check-circle mr-2"></i>运营效率显著提升，毛利率从35.0%提升至36.6%</p>
+                    <p><i class="fas fa-check-circle mr-2"></i>完成CoolTera收购，强化液冷技术能力</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Revenue Analysis -->
+        <section class="mb-12 fade-in">
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden card-hover transition-all duration-300">
+                <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+                    <h2 class="text-xl font-bold flex items-center">
+                        <i class="fas fa-money-bill-trend-up mr-3 text-primary-600 dark:text-primary-400"></i>
+                        1. 营收数据及变化分析
+                    </h2>
+                </div>
+                <div class="p-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-lg font-semibold mb-4 text-primary-600 dark:text-primary-400">整体营收表现</h3>
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-center p-3 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                                    <span>2024年净销售额</span>
+                                    <span class="font-bold">80.118亿美元</span>
+                                </div>
+                                <div class="flex justify-between items-center p-3 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                                    <span>2023年净销售额</span>
+                                    <span class="font-bold">68.632亿美元</span>
+                                </div>
+                                <div class="flex justify-between items-center p-3 bg-green-100 dark:bg-green-900 rounded-lg">
+                                    <span>同比增长</span>
+                                    <span class="font-bold text-green-700 dark:text-green-300">+16.7% (+11.486亿美元)</span>
+                                </div>
+                                <div class="flex justify-between items-center p-3 bg-red-100 dark:bg-red-900 rounded-lg">
+                                    <span>外汇汇率负面影响</span>
+                                    <span class="font-bold text-red-700 dark:text-red-300">-5360万美元</span>
+                                </div>
+                            </div>
+                            
+                            <h3 class="text-lg font-semibold mt-6 mb-4 text-primary-600 dark:text-primary-400">产品与服务营收细分</h3>
+                            <div class="space-y-4">
+                                <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                                    <div class="flex justify-between mb-2">
+                                        <span class="font-medium">产品销售额</span>
+                                        <span class="font-bold">63.935亿美元</span>
+                                    </div>
+                                    <div class="flex justify-between text-sm text-gray-600 dark:text-gray-300">
+                                        <span>同比增长9.874亿美元</span>
+                                        <span>外汇影响-4170万美元</span>
+                                    </div>
+                                </div>
+                                <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                                    <div class="flex justify-between mb-2">
+                                        <span class="font-medium">服务与备件销售额</span>
+                                        <span class="font-bold">16.183亿美元</span>
+                                    </div>
+                                    <div class="flex justify-between text-sm text-gray-600 dark:text-gray-300">
+                                        <span>同比增长1.612亿美元</span>
+                                        <span>外汇影响-1190万美元</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold mb-4 text-primary-600 dark:text-primary-400">营收增长原因分析</h3>
+                            <div class="space-y-4">
+                                <div class="p-4 bg-blue-50 dark:bg-blue-900/30 rounded-lg border-l-4 border-blue-500">
+                                    <h4 class="font-semibold mb-2">核心驱动力：销量增长</h4>
+                                    <p class="text-sm">市场对维谛产品和服务的需求旺盛，特别是在数据中心等核心市场</p>
+                                </div>
+                                <div class="p-4 bg-blue-50 dark:bg-blue-900/30 rounded-lg border-l-4 border-blue-500">
+                                    <h4 class="font-semibold mb-2">价格实现改善</h4>
+                                    <p class="text-sm">成功将部分增加的成本转嫁给客户或通过价值销售提升单价</p>
+                                </div>
+                                <div class="p-4 bg-blue-50 dark:bg-blue-900/30 rounded-lg border-l-4 border-blue-500">
+                                    <h4 class="font-semibold mb-2">市场需求强劲</h4>
+                                    <p class="text-sm">受云计算、数字化转型及AI等新兴技术推动，数据中心需求持续增长</p>
+                                </div>
+                                <div class="p-4 bg-blue-50 dark:bg-blue-900/30 rounded-lg border-l-4 border-blue-500">
+                                    <h4 class="font-semibold mb-2">积压订单支持</h4>
+                                    <p class="text-sm">截至2024年底积压订单71.788亿美元，同比增加16.521亿美元</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-6">
+                                <div class="mermaid">
+                                    graph TD
+                                        A[维谛营收分析（百万美元）] --> B[净销售额]
+                                        B --> C[2024年: 8011.8百万美元]
+                                        B --> D[2023年: 6863.2百万美元]
+                                        B --> E[增长: 1148.6百万美元 +16.7%]
+                                    
+                                        B --> F[按类型细分 - 2024]
+                                        F --> G[产品: 6245.2百万美元]
+                                        F --> H[服务与备件: 1766.6百万美元]
+                                    
+                                        E --> I{增长原因}
+                                        I --> J[销量大幅提升]
+                                        I --> K[强劲市场需求（尤其数据中心/AI）]
+                                        I --> L[价格实现改善]
+                                        I --> M[外汇负面影响 -53.6百万美元]
+                                    
+                                        A --> N[积压订单]
+                                        N --> O[2024年底: 7178.8百万美元]
+                                        N --> P[2023年底: 5526.7百万美元]
+                                        N --> Q[增加: 1652.1百万美元]
+                                        Q --> R[原因: 交付期延长 + 需求强劲]
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profit Analysis -->
+        <section class="mb-12 fade-in">
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden card-hover transition-all duration-300">
+                <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+                    <h2 class="text-xl font-bold flex items-center">
+                        <i class="fas fa-chart-pie mr-3 text-primary-600 dark:text-primary-400"></i>
+                        2. 利润数据及变化分析
+                    </h2>
+                </div>
+                <div class="p-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                        <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
+                            <h3 class="font-semibold mb-2 text-primary-600 dark:text-primary-400">毛利润</h3>
+                            <p class="text-2xl font-bold mb-1">29.342亿<span class="text-sm">美元</span></p>
+                            <p class="text-green-600 dark:text-green-400 font-medium">+22.2% (5.337亿美元)</p>
+                            <p class="text-sm mt-2">毛利率从35.0%提升至36.6%</p>
+                        </div>
+                        <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
+                            <h3 class="font-semibold mb-2 text-primary-600 dark:text-primary-400">营业利润</h3>
+                            <p class="text-2xl font-bold mb-1">13.674亿<span class="text-sm">美元</span></p>
+                            <p class="text-green-600 dark:text-green-400 font-medium">+56.8% (4.952亿美元)</p>
+                            <p class="text-sm mt-2">营业利润率从12.7%提升至17.1%</p>
+                        </div>
+                        <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
+                            <h3 class="font-semibold mb-2 text-primary-600 dark:text-primary-400">净利润</h3>
+                            <p class="text-2xl font-bold mb-1">4.958亿<span class="text-sm">美元</span></p>
+                            <p class="text-green-600 dark:text-green-400 font-medium">+7.7% (3560万美元)</p>
+                            <p class="text-sm mt-2">净利润率从6.7%略微下降至6.2%</p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-lg font-semibold mb-4 text-primary-600 dark:text-primary-400">利润增长关键因素</h3>
+                            <div class="space-y-4">
+                                <div class="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-green-500">
+                                    <h4 class="font-semibold mb-1">毛利润增长</h4>
+                                    <p class="text-sm">销量增长带来的规模效应和改善的价格实现</p>
+                                </div>
+                                <div class="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-green-500">
+                                    <h4 class="font-semibold mb-1">SG&A效率提升</h4>
+                                    <p class="text-sm">SG&A占销售额比例从19.1%下降至17.1%</p>
+                                </div>
+                                <div class="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-green-500">
+                                    <h4 class="font-semibold mb-1">其他运营费用减少</h4>
+                                    <p class="text-sm">重组成本大幅减少2320万美元</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold mb-4 text-primary-600 dark:text-primary-400">净利润增长受限原因</h3>
+                            <div class="space-y-4">
+                                <div class="p-4 bg-red-50 dark:bg-red-900/20 rounded-lg border-l-4 border-red-500">
+                                    <h4 class="font-semibold mb-1">权证公允价值损失</h4>
+                                    <p class="text-sm">增加2.913亿美元 (2024年损失4.492亿美元)</p>
+                                </div>
+                                <div class="p-4 bg-red-50 dark:bg-red-900/20 rounded-lg border-l-4 border-red-500">
+                                    <h4 class="font-semibold mb-1">所得税费用增加</h4>
+                                    <p class="text-sm">增加1.961亿美元，实际税率从13.8%上升至35.2%</p>
+                                </div>
+                                <div class="p-4 bg-blue-50 dark:bg-blue-900/30 rounded-lg border-l-4 border-blue-500">
+                                    <h4 class="font-semibold mb-1">利息费用净额减少</h4>
+                                    <p class="text-sm">减少2970万美元，对净利润有正面影响</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <div class="mermaid">
+                            graph TD
+                                A[维谛利润分析（百万美元）] --> B[毛利润]
+                                B --> B1[2024: 2934.2百万美元 36.6%]
+                                B --> B2[2023: 2400.5百万美元 35.0%]
+                                B --> B3[增长: 533.7百万美元 +22.2%]
+                                B3 --> B4[原因: 销量增长，价格改善]
+                            
+                                A --> C[营业利润]
+                                C --> C1[2024: 1367.4百万美元 17.1%]
+                                C --> C2[2023: 872.2百万美元 12.7%]
+                                C --> C3[增长: 495.2百万美元 +56.8%]
+                                C3 --> C4[原因: 毛利强劲增长，SG&A效率提升，其他运营费用减少]
+                            
+                                A --> D[净利润]
+                                D --> D1[2024: 495.8百万美元 6.2%]
+                                D --> D2[2023: 460.2百万美元 6.7%]
+                                D --> D3[增长: 35.6百万美元 +7.7%]
+                                D3 --> D4{增长受限原因}
+                                D4 --> E[权证公允价值损失大幅增加 291.3百万美元]
+                                D4 --> F[所得税费用大幅增加 196.1百万美元]
+                                D4 --> G[利息费用净额减少 29.7百万美元 - 正面影响]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Regional Performance -->
+        <section class="mb-12 fade-in">
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden card-hover transition-all duration-300">
+                <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+                    <h2 class="text-xl font-bold flex items-center">
+                        <i class="fas fa-globe mr-3 text-primary-600 dark:text-primary-400"></i>
+                        3. 分区域表现分析
+                    </h2>
+                </div>
+                <div class="p-6">
+                    <div class="mb-8">
+                        <div class="mermaid">
+                            pie
+                                title 维谛2024年各区域净销售额占比 (总额 $8011.8M)
+                                "美洲区 (Americas)" : 4500.6
+                                "亚太区 (Asia Pacific)" : 1717.8
+                                "欧洲、中东及非洲区 (EMEA)" : 1793.4
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-gray-100 dark:bg-gray-700 p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-3 text-primary-600 dark:text-primary-400">美洲区 (Americas)</h3>
+                            <div class="space-y-3">
+                                <div>
+                                    <p class="font-medium">营收</p>
+                                    <p class="text-xl font-bold">45.006亿美元</p>
+                                    <p class="text-green-600 dark:text-green-400">+17.1%</p>
+                                </div>
+                                <div>
+                                    <p class="font-medium">营业利润</p>
+                                    <p class="text-xl font-bold">10.978亿美元</p>
+                                    <p class="text-green-600 dark:text-green-400">+44.0%</p>
+                                </div>
+                                <div>
+                                    <p class="font-medium">营业利润率</p>
+                                    <p class="text-xl font-bold">24.4%</p>
+                                    <p class="text-green-600 dark:text-green-400">(2023:19.8%)</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-100 dark:bg-gray-700 p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-3 text-primary-600 dark:text-primary-400">亚太区 (Asia Pacific)</h3>
+                            <div class="space-y-3">
+                                <div>
+                                    <p class="font-medium">营收</p>
+                                    <p class="text-xl font-bold">17.178亿美元</p>
+                                    <p class="text-green-600 dark:text-green-400">+12.4%</p>
+                                </div>
+                                <div>
+                                    <p class="font-medium">营业利润</p>
+                                    <p class="text-xl font-bold">1.752亿美元</p>
+                                    <p class="text-green-600 dark:text-green-400">+18.9%</p>
+                                </div>
+                                <div>
+                                    <p class="font-medium">营业利润率</p>
+                                    <p class="text-xl font-bold">10.2%</p>
+                                    <p class="text-green-600 dark:text-green-400">(2023:9.6%)</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-100 dark:bg-gray-700 p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-3 text-primary-600 dark:text-primary-400">欧洲、中东及非洲区 (EMEA)</h3>
+                            <div class="space-y-3">
+                                <div>
+                                    <p class="font-medium">营收</p>
+                                    <p class="text-xl font-bold">17.934亿美元</p>
+                                    <p class="text-green-600 dark:text-green-400">+20.3%</p>
+                                </div>
+                                <div>
+                                    <p class="font-medium">营业利润</p>
+                                    <p class="text-xl font-bold">4.394亿美元</p>
+                                    <p class="text-green-600 dark:text-green-400">+47.6%</p>
+                                </div>
+                                <div>
+                                    <p class="font-medium">营业利润率</p>
+                                    <p class="text-xl font-bold">24.5%</p>
+                                    <p class="text-green-600 dark:text-green-400">(2023:20.0%)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <div class="mermaid">
+                            graph LR
+                                subgraph 区域业绩概览
+                                    A[美洲区] --> A1[营收 +17.1%]
+                                    A --> A2[营业利润 +44.0%]
+                                    A --> A3[利润率 24.4% vs 19.8%]
+
+                                    B[亚太区] --> B1[营收 +12.4%]
+                                    B --> B2[营业利润 +18.9%]
+                                    B --> B3[利润率 10.2% vs 9.6%]
+
+                                    C[EMEA区] --> C1[营收 +20.3%]
+                                    C --> C2[营业利润 +47.6%]
+                                    C --> C3[利润率 24.5% vs 20.0%]
+                                end
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Market Segment Analysis -->
+        <section class="mb-12 fade-in">
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden card-hover transition-all duration-300">
+                <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+                    <h2 class="text-xl font-bold flex items-center">
+                        <i class="fas fa-sitemap mr-3 text-primary-600 dark:text-primary-400"></i>
+                        4. 分终端市场表现分析
+                    </h2>
+                </div>
+                <div class="p-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                        <div class="bg-blue-50 dark:bg-blue-900/30 p-5 rounded-lg border-l-4 border-blue-500">
+                            <h3 class="text-lg font-semibold mb-3 text-primary-600 dark:text-primary-400">数据中心</h3>
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex items-start">
+                                    <i class="fas fa-cloud mt-1 mr-2 text-blue-500"></i>
+                                    <span><strong>云/超大规模:</strong> 增长迅速，主要驱动力是云服务普及和AI工作负载增加</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-server mt-1 mr-2 text-blue-500"></i>
+                                    <span><strong>托管:</strong> 市场处于显著增长轨道</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-building mt-1 mr-2 text-blue-500"></i>
+                                    <span><strong>企业:</strong> 数据中心面积和数量在过去三年普遍持平</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-purple-50 dark:bg-purple-900/30 p-5 rounded-lg border-l-4 border-purple-500">
+                            <h3 class="text-lg font-semibold mb-3 text-primary-600 dark:text-primary-400">通信网络</h3>
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex items-start">
+                                    <i class="fas fa-wifi mt-1 mr-2 text-purple-500"></i>
+                                    <span>包括有线、无线和宽带公司</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-chart-line mt-1 mr-2 text-purple-500"></i>
+                                    <span>市场增长通常为低个位数</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-sync-alt mt-1 mr-2 text-purple-500"></i>
+                                    <span>与电信资本支出和移动部署周期相关</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-green-50 dark:bg-green-900/20 p-5 rounded-lg border-l-4 border-green-500">
+                            <h3 class="text-lg font-semibold mb-3 text-primary-600 dark:text-primary-400">商业和工业</h3>
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex items-start">
+                                    <i class="fas fa-industry mt-1 mr-2 text-green-500"></i>
+                                    <span>应用于交通、制造、油气等关键系统</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-brain mt-1 mr-2 text-green-500"></i>
+                                    <span>对智能基础设施的需求在增长</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-chart-bar mt-1 mr-2 text-green-500"></i>
+                                    <span>增长通常与GDP变化一致，可能受益于自动化和数字化趋势</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-lg font-semibold mb-4 text-primary-600 dark:text-primary-400">市场趋势与维谛的战略应对</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                            <h4 class="font-semibold mb-2 flex items-center">
+                                <i class="fas fa-microchip mr-2 text-accent-600"></i>
+                                AI驱动的数据中心需求激增
+                            </h4>
+                            <p class="text-sm">维谛已投资开发新产品、服务和解决方案以服务这个不断增长的行业，正在增加产能以支持对AI基础设施的额外需求</p>
+                        </div>
+                        <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                            <h4 class="font-semibold mb-2 flex items-center">
+                                <i class="fas fa-temperature-low mr-2 text-accent-600"></i>
+                                散热管理的战略重要性提升
+                            </h4>
+                            <p class="text-sm">维谛强调其在散热管理产品组合上的持续投资和扩展，以抓住"混合空气和液体冷却"带来的机遇</p>
+                        </div>
+                        <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                            <h4 class="font-semibold mb-2 flex items-center">
+                                <i class="fas fa-globe-americas mr-2 text-accent-600"></i>
+                                地域韧性与产能扩张
+                            </h4>
+                            <p class="text-sm">维谛持续推行供应链的地域弹性战略，包括增加区域采购和制造选项。2024年在美国扩大和加强了供应基地和制造足迹</p>
+                        </div>
+                        <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                            <h4 class="font-semibold mb-2 flex items-center">
+                                <i class="fas fa-file-invoice-dollar mr-2 text-accent-600"></i>
+                                关税影响
+                            </h4>
+                            <p class="text-sm">报告提及新关税的可能性会增加运营成本，公司持续分析措施以最小化潜在影响，包括扩大国内制造和将关税影响纳入定价决策</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- M&A and New Products -->
+        <section class="mb-12 fade-in">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- M&A -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden card-hover transition-all duration-300">
+                    <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+                        <h2 class="text-xl font-bold flex items-center">
+                            <i class="fas fa-handshake mr-3 text-primary-600 dark:text-primary-400"></i>
+                            5. 重大并购事件
+                        </h2>
+                    </div>
+                    <div class="p-6">
+                        <div class="mb-6">
+                            <h3 class="text-lg font-semibold mb-3 text-primary-600 dark:text-primary-400">CoolTera Ltd. 的整合</h3>
+                            <div class="pl-4 border-l-4 border-accent-500">
+                                <p class="mb-2"><strong>交易完成:</strong> 2023年12月8日</p>
+                                <p class="mb-2"><strong>业务领域:</strong> 数据中心液冷基础设施解决方案</p>
+                                <p class="mb-2"><strong>专长技术:</strong> 冷却液分配单元(CDU)、二次冷却网络和歧管</p>
+                                <p><strong>战略意义:</strong> 显著增强了维谛在快速增长的液冷市场中的地位，与其在散热领域加大投入的战略高度一致</p>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-lg font-semibold mb-3 text-primary-600 dark:text-primary-400">2024年收购活动</h3>
+                            <div class="space-y-3">
+                                <div class="flex justify-between p-3 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                                    <span>收购业务现金流出</span>
+                                    <span class="font-bold">1760万美元</span>
+                                </div>
+                                <div class="flex justify-between p-3 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                                    <span>亚太区新增商誉</span>
+                                    <span class="font-bold">870万美元</span>
+                                </div>
+                                <p class="text-sm mt-2">2024年发生了一些小规模收购活动，主要影响在亚太地区</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- New Products -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden card-hover transition-all duration-300">
+                    <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+                        <h2 class="text-xl font-bold flex items-center">
+                            <i class="fas fa-box-open mr-3 text-primary-600 dark:text-primary-400"></i>
+                            6. 最新产品情况
+                        </h2>
+                    </div>
+                    <div class="p-6">
+                        <div class="mb-6">
+                            <h3 class="text-lg font-semibold mb-3 text-primary-600 dark:text-primary-400">研发投入</h3>
+                            <div class="p-4 bg-blue-50 dark:bg-blue-900/30 rounded-lg">
+                                <p class="text-2xl font-bold text-center">3.521亿<span class="text-sm">美元</span></p>
+                                <p class="text-center text-sm mt-1">2024年工程、研发("ER&D")投入</p>
+                            </div>
+                            <p class="text-sm mt-3">研发预算重点关注工程持续改进和新产品创新，旨在引领市场趋势</p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-lg font-semibold mb-3 text-primary-600 dark:text-primary-400">关键产品发展方向</h3>
+                            <div class="space-y-4">
+                                <div class="p-3 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                                    <h4 class="font-semibold flex items-center">
+                                        <i class="fas fa-fan mr-2 text-blue-500"></i>
+                                        先进散热解决方案 (特别是液冷)
+                                    </h4>
+                                    <p class="text-sm mt-1">投资扩展覆盖从芯片到散热和热量再利用的整个热链，通过收购CoolTera获得液冷技术</p>
+                                </div>
+                                <div class="p-3 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                                    <h4 class="font-semibold flex items-center">
+                                        <i class="fas fa-microchip mr-2 text-blue-500"></i>
+                                        支持AI基础设施的产品
+                                    </h4>
+                                    <p class="text-sm mt-1">开发和调整电源、配电、模块化解决方案等产品线以满足AI数据中心需求</p>
+                                </div>
+                                <div class="p-3 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                                    <h4 class="font-semibold flex items-center">
+                                        <i class="fas fa-plug mr-2 text-blue-500"></i>
+                                        开关设备、母线和集成解决方案
+                                    </h4>
+                                    <p class="text-sm mt-1">自收购E&I后，相关制造能力已大致翻倍，满足大型数据中心项目需求</p>
+                                </div>
+                                <div class="p-3 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                                    <h4 class="font-semibold flex items-center">
+                                        <i class="fas fa-cubes mr-2 text-blue-500"></i>
+                                        模块化解决方案
+                                    </h4>
+                                    <p class="text-sm mt-1">在南卡罗来纳州Pelzer新建工厂，支持模块化解决方案、模块化电源系统生产</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comprehensive Evaluation -->
+        <section class="mb-12 fade-in">
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden card-hover transition-all duration-300">
+                <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+                    <h2 class="text-xl font-bold flex items-center">
+                        <i class="fas fa-star mr-3 text-primary-600 dark:text-primary-400"></i>
+                        综合评估与行业判断
+                    </h2>
+                </div>
+                <div class="p-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-lg font-semibold mb-4 text-primary-600 dark:text-primary-400">经营状况</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <div class="bg-green-100 dark:bg-green-900/20 text-green-800 dark:text-green-200 p-2 rounded-lg mr-3">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">运营层面表现亮眼</p>
+                                        <p class="text-sm text-gray-600 dark:text-gray-300">营收增长16.7%，营业利润增长56.8%，毛利率提升至36.6%</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="bg-green-100 dark:bg-green-900/20 text-green-800 dark:text-green-200 p-2 rounded-lg mr-3">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">战略聚焦清晰</p>
+                                        <p class="text-sm text-gray-600 dark:text-gray-300">明确聚焦数据中心市场，特别是AI带来的高速增长机遇</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="bg-blue-100 dark:bg-blue-900/20 text-blue-800 dark:text-blue-200 p-2 rounded-lg mr-3">
+                                        <i class="fas fa-info-circle"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">财务风险观察</p>
+                                        <p class="text-sm text-gray-600 dark:text-gray-300">净利润增长受非经营性项目和税收影响，需关注税率变化</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h3 class="text-lg font-semibold mt-8 mb-4 text-primary-600 dark:text-primary-400">行业前景</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <div class="bg-purple-100 dark:bg-purple-900/20 text-purple-800 dark:text-purple-200 p-2 rounded-lg mr-3">
+                                        <i class="fas fa-bolt"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">AI驱动的需求前景</p>
+                                        <p class="text-sm text-gray-600 dark:text-gray-300">维谛将AI视为未来几年的核心增长引擎，液冷技术成为关键竞争优势</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="bg-yellow-100 dark:bg-yellow-900/20 text-yellow-800 dark:text-yellow-200 p-2 rounded-lg mr-3">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">供应链与交付能力</p>
+                                        <p class="text-sm text-gray-600 dark:text-gray-300">巨额积压订单(71.788亿美元)反映市场需求旺盛，需关注交付能力</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-lg font-semibold mb-4 text-primary-600 dark:text-primary-400">竞争对手行动</h3>
+                            <div class="space-y-4">
+                                <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                                    <h4 class="font-semibold mb-2 flex items-center">
+                                        <i class="fas fa-money-bill-wave mr-2 text-accent-600"></i>
+                                        加大投资
+                                    </h4>
+                                    <p class="text-sm">2025年预计资本支出2.5-3亿美元用于产能扩张(尤其是AI和散热领域)</p>
+                                </div>
+                                <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                                    <h4 class="font-semibold mb-2 flex items-center">
+                                        <i class="fas fa-store-alt mr-2 text-accent-600"></i>
+                                        战略性收购
+                                    </h4>
+                                    <p class="text-sm">整合CoolTera强化液冷领域能力，2024年有小规模亚太区收购</p>
+                                </div>
+                                <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                                    <h4 class="font-semibold mb-2 flex items-center">
+                                        <i class="fas fa-tags mr-2 text-accent-600"></i>
+                                        定价与成本管理
+                                    </h4>
+                                    <p class="text-sm">毛利率提升表明在定价和成本控制方面取得成功</p>
+                                </div>
+                                <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                                    <h4 class="font-semibold mb-2 flex items-center">
+                                        <i class="fas fa-hand-holding-usd mr-2 text-accent-600"></i>
+                                        股东回报
+                                    </h4>
+                                    <p class="text-sm">提高季度股息(从$0.025增至$0.0375)，2024年回购6亿美元股票</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 p-4 bg-blue-50 dark:bg-blue-900/30 rounded-lg border-l-4 border-blue-500">
+                        <h3 class="text-lg font-semibold mb-2 text-primary-600 dark:text-primary-400">结论</h3>
+                        <p class="text-sm">维谛作为UPS及关键基础设施领域的领导者，在2024年展现了非常强劲的增长势头和运营效率提升。公司成功抓住了数据中心（尤其是AI驱动）的市场机遇，并在战略性的技术领域（如液冷）和全球产能上进行了大量投资。其高额的积压订单预示着短期内需求持续旺盛。虽然净利润增长受到权证和税收的暂时性压制，但其核心运营盈利能力已显著增强。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest News -->
+        <section class="mb-12 fade-in">
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden card-hover transition-all duration-300">
+                <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+                    <h2 class="text-xl font-bold flex items-center">
+                        <i class="fas fa-newspaper mr-3 text-primary-600 dark:text-primary-400"></i>
+                        最新新闻动态
+                    </h2>
+                </div>
+                <div class="p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-lg font-semibold mb-4 text-primary-600 dark:text-primary-400">市场动态</h3>
+                            <div class="space-y-4">
+                                <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                                    <h4 class="font-semibold mb-1">AI驱动数据中心建设</h4>
+                                    <p class="text-sm">公司明确指出AI驱动的数据中心建设需求是其增长的主要动力，高管对AI带来的持续增长充满信心</p>
+                                </div>
+                                <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                                    <h4 class="font-semibold mb-1">区域市场表现分化</h4>
+                                    <p class="text-sm">美洲市场表现尤其强劲，亚太地区增长稳健，EMEA地区Q4订单出现疲软但营收仍实现33%增长</p>
+                                </div>
+                                <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                                    <h4 class="font-semibold mb-1">全球化布局与拓展</h4>
+                                    <p class="text-sm">在印度浦那扩建综合业务服务中心，通过收购中国BSE公司加强亚洲市场地位</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold mb-4 text-primary-600 dark:text-primary-400">产品与技术动态</h3>
+                            <div class="space-y-4">
+                                <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                                    <h4 class="font-semibold mb-1">UPS产品线更新</h4>
+                                    <p class="text-sm">推出Vertiv™ PowerUPS 9000系列UPS(250-1250kW)，高功率密度、高效率(达97.5%)</p>
+                                </div>
+                                <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                                    <h4 class="font-semibold mb-1">散热解决方案扩展</h4>
+                                    <p class="text-sm">全球发布Vertiv™液体冷却服务产品组合，收购中国BSE公司的离心式冷水机组技术</p>
+                                </div>
+                                <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                                    <h4 class="font-semibold mb-1">研发投入</h4>
+                                    <p class="text-sm">持续增加研发投入(2024年增加5000万美元)，2025年计划在增长、产能和研发方面投入约1.6亿美元</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 dark:bg-gray-800 py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-lg font-semibold">维谛技术(Vertiv) 2024年财报分析</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">竞争对手分析 · 2024年3月</p>
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="font-medium">作者</p>
+                    <p class="text-gray-600 dark:text-gray-400">邓晨阳</p>
+                </div>
+            </div>
+            <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700 text-center text-sm text-gray-500 dark:text-gray-400">
+                <p>© 维谛技术. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        // Check for saved theme or use preferred
+        const currentTheme = localStorage.getItem('theme') || (prefersDarkScheme.matches ? 'dark' : 'light');
+        if (currentTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+        }
+        
+        themeToggle.addEventListener('click', function() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+        
+        // Initialize Mermaid
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: document.documentElement.classList.contains('dark') ? 'dark' : 'default',
+            fontFamily: "'Noto Sans SC', sans-serif",
+        });
+        
+        // Fade in animation for sections
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        fadeElements.forEach(el => {
+            el.style.opacity = 0;
+            observer.observe(el);
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

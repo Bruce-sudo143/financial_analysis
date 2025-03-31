@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伊顿公司(Eaton)2024年财报深度分析</title>
+    <meta name="description" content="伊顿公司2024年财报专业分析报告 - 可视化呈现">
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        secondary: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            200: '#ddd6fe',
+                            300: '#c4b5fd',
+                            400: '#a78bfa',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                            800: '#5b21b6',
+                            900: '#4c1d95',
+                        },
+                        accent: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            200: '#a7f3d0',
+                            300: '#6ee7b7',
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                        },
+                        dark: {
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans SC"', 'system-ui', 'sans-serif'],
+                        serif: ['"Noto Serif SC"', 'Georgia', 'serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Preline UI -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@preline/overlay@1.0.0/dist/overlay.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@preline/overlay@1.0.0/dist/overlay.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts - Noto Sans SC & Noto Serif SC -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Mermaid JS -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            fontFamily: '"Noto Sans SC", sans-serif',
+        });
+    </script>
+    
+    <style>
+        .prose :where(code):not(:where([class~="not-prose"] *)) {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            font-size: 0.875em;
+            font-weight: 600;
+            color: inherit;
+            background-color: rgba(97, 97, 97, 0.1);
+            border-radius: 0.25rem;
+            padding: 0.2em 0.4em;
+        }
+        
+        .prose :where(code):not(:where([class~="not-prose"] *))::before,
+        .prose :where(code):not(:where([class~="not-prose"] *))::after {
+            content: "";
+        }
+        
+        .dark .prose :where(code):not(:where([class~="not-prose"] *)) {
+            background-color: rgba(138, 138, 138, 0.2);
+        }
+        
+        .chart-container {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .dark .chart-container {
+            background-color: #1e293b;
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0) !important;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans transition-colors duration-300">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary-600 dark:text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+                <h1 class="text-xl font-bold text-gray-800 dark:text-white">伊顿公司分析报告</h1>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+                <a href="#download" class="hidden md:inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
+                    <i class="fas fa-download mr-2"></i> 下载报告
+                </a>
+                <a href="index.html" class="hidden md:inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
+                    <i class="fas fa-home mr-2"></i> 返回主页
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-primary-500 to-primary-700 text-white py-16 md:py-24">
+        <div class="container mx-auto px-4 text-center animate-on-scroll" style="transform: translateY(20px);">
+            <h1 class="text-3xl md:text-5xl font-bold mb-4">伊顿公司(Eaton)<br>2024年财报深度分析</h1>
+            <p class="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto">电气化与数字化双轮驱动下的持续增长</p>
+            <div class="mt-8 flex justify-center space-x-4">
+                <a href="#financial-highlights" class="px-6 py-3 bg-white text-primary-700 font-medium rounded-md hover:bg-opacity-90 transition-colors">
+                    核心财务数据
+                </a>
+                <a href="#latest-news" class="px-6 py-3 border-2 border-white text-white font-medium rounded-md hover:bg-white hover:bg-opacity-10 transition-colors">
+                    最新动态
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Table of Contents -->
+    <section class="py-12 bg-gray-100 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto animate-on-scroll" style="transform: translateY(20px);">
+                <h2 class="text-2xl font-bold mb-6 text-center">报告目录</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <a href="#financial-highlights" class="bg-white dark:bg-gray-700 p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center text-primary-600 dark:text-primary-300">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <span class="font-medium">核心财务表现</span>
+                    </a>
+                    <a href="#revenue-analysis" class="bg-white dark:bg-gray-700 p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-accent-100 dark:bg-accent-900 flex items-center justify-center text-accent-600 dark:text-accent-300">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <span class="font-medium">营收数据分析</span>
+                    </a>
+                    <a href="#profit-analysis" class="bg-white dark:bg-gray-700 p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-secondary-100 dark:bg-secondary-900 flex items-center justify-center text-secondary-600 dark:text-secondary-300">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <span class="font-medium">利润数据分析</span>
+                    </a>
+                    <a href="#regional-performance" class="bg-white dark:bg-gray-700 p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center text-primary-600 dark:text-primary-300">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <span class="font-medium">分区域表现</span>
+                    </a>
+                    <a href="#market-segments" class="bg-white dark:bg-gray-700 p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-accent-100 dark:bg-accent-900 flex items-center justify-center text-accent-600 dark:text-accent-300">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <span class="font-medium">终端市场分析</span>
+                    </a>
+                    <a href="#latest-news" class="bg-white dark:bg-gray-700 p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-secondary-100 dark:bg-secondary-900 flex items-center justify-center text-secondary-600 dark:bg-secondary-300">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                        <span class="font-medium">最新新闻动态</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financial Highlights -->
+    <section id="financial-highlights" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto animate-on-scroll" style="transform: translateY(20px);">
+                <h2 class="text-3xl font-bold mb-8 text-center">核心财务表现</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border-l-4 border-primary-500">
+                        <h3 class="text-lg font-semibold mb-3">净销售额</h3>
+                        <p class="text-3xl font-bold text-primary-600 dark:text-primary-400 mb-2">248.78亿<span class="text-lg">美元</span></p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">同比增长 <span class="text-green-600 dark:text-green-400 font-medium">7.2%</span></p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border-l-4 border-accent-500">
+                        <h3 class="text-lg font-semibold mb-3">净利润</h3>
+                        <p class="text-3xl font-bold text-accent-600 dark:text-accent-400 mb-2">37.98亿<span class="text-lg">美元</span></p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">净利润率 <span class="text-green-600 dark:text-green-400 font-medium">15.3%</span></p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border-l-4 border-secondary-500">
+                        <h3 class="text-lg font-semibold mb-3">研发投入</h3>
+                        <p class="text-3xl font-bold text-secondary-600 dark:text-secondary-400 mb-2">7.94亿<span class="text-lg">美元</span></p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">占营收比例 <span class="text-green-600 dark:text-green-400 font-medium">3.2%</span></p>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 mb-8 animate-on-scroll" style="transform: translateY(20px);">
+                    <h3 class="text-xl font-semibold mb-4">营收增长趋势</h3>
+                    <div class="chart-container">
+                        <div class="mermaid">
+                            gantt
+                                title 伊顿公司营收增长趋势（单位：亿美元）
+                                dateFormat  YYYY-MM-DD
+                            
+                                section 净销售额
+                                2022年: 2022-01-01, 2022-12-31
+                                2023年 (增长 11.8%): 2023-01-01, 2023-12-31
+                                2024年 (增长 7.2%): 2024-01-01, 2024-12-31
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 animate-on-scroll" style="transform: translateY(20px);">
+                    <h3 class="text-xl font-semibold mb-4">利润构成分析</h3>
+                    <div class="chart-container">
+                        <div class="mermaid">
+                            pie
+                                title 2024年利润构成
+                                "毛利率提升" : 45
+                                "运营费用优化" : 30
+                                "税率降低" : 15
+                                "其他收益" : 10
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Revenue Analysis -->
+    <section id="revenue-analysis" class="py-16 bg-gray-100 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8 text-center animate-on-scroll" style="transform: translateY(20px);">营收数据分析</h2>
+                
+                <div class="bg-white dark:bg-gray-700 rounded-xl shadow-sm p-6 mb-8 animate-on-scroll" style="transform: translateY(20px);">
+                    <h3 class="text-xl font-semibold mb-4">整体营收表现</h3>
+                    <div class="prose dark:prose-invert max-w-none">
+                        <ul>
+                            <li><strong>2024年</strong>：净销售额 <strong>248.78亿美元</strong>，同比增长 <strong>7.2%</strong>（2023年为231.96亿美元）。</li>
+                            <li><strong>2023年</strong>：净销售额 <strong>231.96亿美元</strong>，同比增长 <strong>11.8%</strong>（2022年为207.52亿美元）。</li>
+                            <li><strong>2022年</strong>：净销售额 <strong>207.52亿美元</strong>，同比增长 <strong>13.6%</strong>（2021年未披露）。</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-700 rounded-xl shadow-sm p-6 animate-on-scroll" style="transform: translateY(20px);">
+                    <h3 class="text-xl font-semibold mb-4">增长驱动因素</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-medium text-lg mb-2 text-primary-600 dark:text-primary-400">核心业务扩张</h4>
+                            <div class="prose dark:prose-invert max-w-none">
+                                <ul>
+                                    <li><strong>电气美洲(Electrical Americas)</strong>：2024年销售额114.36亿美元（占比46%），同比增长13.2%，主要受益于北美基建投资和可再生能源项目需求。</li>
+                                    <li><strong>电动出行(eMobility)</strong>：2024年销售额6.62亿美元，同比增长4.1%，电动汽车零部件需求持续增长。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-lg mb-2 text-accent-600 dark:text-accent-400">行业趋势推动</h4>
+                            <div class="prose dark:prose-invert max-w-none">
+                                <ul>
+                                    <li>能源转型(Energy Transition)和数字化(Digitalization)战略直接拉动数据中心和公用事业市场订单。</li>
+                                    <li><strong>航空航天(Aerospace)</strong>部门2024年销售额37.44亿美元，同比增长9.7%，商用航空市场复苏是关键。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="md:col-span-2">
+                            <h4 class="font-medium text-lg mb-2 text-secondary-600 dark:text-secondary-400">供应链优化</h4>
+                            <div class="prose dark:prose-invert max-w-none">
+                                <ul>
+                                    <li>2024年库存周转率提升至4.8次（2023年为4.2次），供应链韧性增强缓解了原材料短缺压力。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profit Analysis -->
+    <section id="profit-analysis" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8 text-center animate-on-scroll" style="transform: translateY(20px);">利润数据分析</h2>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 mb-8 animate-on-scroll" style="transform: translateY(20px);">
+                    <h3 class="text-xl font-semibold mb-4">净利润与利润率</h3>
+                    <div class="prose dark:prose-invert max-w-none">
+                        <ul>
+                            <li><strong>2024年</strong>：净利润 <strong>37.98亿美元</strong>，净利润率 <strong>15.3%</strong>（同比提升1.4个百分点）。</li>
+                            <li><strong>2023年</strong>：净利润 <strong>32.23亿美元</strong>，净利润率 <strong>13.9%</strong>（同比提升2.0个百分点）。</li>
+                            <li><strong>2022年</strong>：净利润 <strong>24.62亿美元</strong>，净利润率 <strong>11.9%</strong>。</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 animate-on-scroll" style="transform: translateY(20px);">
+                    <h3 class="text-xl font-semibold mb-4">利润增长原因</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-medium text-lg mb-2 text-primary-600 dark:text-primary-400">成本控制</h4>
+                            <div class="prose dark:prose-invert max-w-none">
+                                <ul>
+                                    <li>2024年原材料成本占比下降至61.8%（2023年为63.6%），通过长期协议锁定铜、钢等大宗商品价格。</li>
+                                    <li>全球裁员计划减少人力成本，2024年员工总数降至94,443人（2023年为94,949人）。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-lg mb-2 text-accent-600 dark:text-accent-400">高毛利业务占比提升</h4>
+                            <div class="prose dark:prose-invert max-w-none">
+                                <ul>
+                                    <li>航空航天部门营业利润率达18.5%（电气部门为14.2%），商用飞机订单增长推动利润结构优化。</li>
+                                    <li>软件增值服务收入占比提升至9%（2023年为7%），数字化解决方案毛利率达45%。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="md:col-span-2">
+                            <h4 class="font-medium text-lg mb-2 text-secondary-600 dark:text-secondary-400">税务优化</h4>
+                            <div class="prose dark:prose-invert max-w-none">
+                                <ul>
+                                    <li>爱尔兰总部有效税率16.8%（2023年15.8%），通过全球税务架构调整节省税负。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Regional Performance -->
+    <section id="regional-performance" class="py-16 bg-gray-100 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8 text-center animate-on-scroll" style="transform: translateY(20px);">分区域表现分析</h2>
+                
+                <div class="bg-white dark:bg-gray-700 rounded-xl shadow-sm p-6 mb-8 animate-on-scroll" style="transform: translateY(20px);">
+                    <h3 class="text-xl font-semibold mb-4">区域收入分布</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-600">
+                            <thead class="bg-gray-50 dark:bg-gray-600">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">区域</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">2024年销售额（亿美元）</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">占比</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">同比增长</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white dark:bg-gray-700 divide-y divide-gray-200 dark:divide-gray-600">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">美洲</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">114.36</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">46%</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-green-600 dark:text-green-400">+13.2%</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">欧洲</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">62.48</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">25%</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-green-600 dark:text-green-400">+2.7%</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">亚太</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">37.44</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">15%</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-green-600 dark:text-green-400">+9.7%</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">其他</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">34.50</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">14%</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-green-600 dark:text-green-400">+5.1%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-700 rounded-xl shadow-sm p-6 animate-on-scroll" style="transform: translateY(20px);">
+                    <h3 class="text-xl font-semibold mb-4">区域增长驱动因素</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-medium text-lg mb-2 text-primary-600 dark:text-primary-400">美洲市场</h4>
+                            <div class="prose dark:prose-invert max-w-none">
+                                <ul>
+                                    <li>拜登政府《基础设施投资法案》拉动电网升级需求，电气美洲部门在北美数据中心市场占有率提升至32%。</li>
+                                    <li>墨西哥工厂产能扩张（2024年新增2条产线），满足电动汽车零部件本地化生产需求。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-lg mb-2 text-accent-600 dark:text-accent-400">欧洲市场</h4>
+                            <div class="prose dark:prose-invert max-w-none">
+                                <ul>
+                                    <li>能源危机加速可再生能源转型，2024年风电配套设备销售额增长21%。</li>
+                                    <li>乌克兰冲突导致东欧供应链重组，波兰工厂承接部分俄罗斯订单转移。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="md:col-span-2">
+                            <h4 class="font-medium text-lg mb-2 text-secondary-600 dark:text-secondary-400">亚太市场</h4>
+                            <div class="prose dark:prose-invert max-w-none">
+                                <ul>
+                                    <li>中国"双碳"政策推动电气全球(Electrical Global)销售额增长12%，印度数据中心投资同比激增35%。</li>
+                                    <li>日本政府补贴刺激eMobility业务，2024年亚太区电动汽车零部件订单量增长28%。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Segments -->
+    <section id="market-segments" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8 text-center animate-on-scroll" style="transform: translateY(20px);">终端市场分析</h2>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 mb-8 animate-on-scroll" style="transform: translateY(20px);">
+                    <h3 class="text-xl font-semibold mb-4">终端市场收入结构</h3>
+                    <div class="chart-container">
+                        <div class="mermaid">
+                            pie
+                                title 2024年终端市场收入占比
+                                "数据中心" : 28
+                                "公用事业" : 22
+                                "工业设备" : 18
+                                "航空航天" : 15
+                                "商用车" : 12
+                                "其他" : 5
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 animate-on-scroll" style="transform: translateY(20px);">
+                    <h3 class="text-xl font-semibold mb-4">关键市场动态</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-medium text-lg mb-2 text-primary-600 dark:text-primary-400">数据中心</h4>
+                            <div class="prose dark:prose-invert max-w-none">
+                                <ul>
+                                    <li>2024年销售额70亿美元（占比28%），同比增长25%，受益于AI算力需求爆发。</li>
+                                    <li>推出新一代智能配电单元(PDU)，支持240V高压直流供电，能耗降低15%。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-lg mb-2 text-accent-600 dark:text-accent-400">航空航天</h4>
+                            <div class="prose dark:prose-invert max-w-none">
+                                <ul>
+                                    <li>波音787复飞带动航空液压系统订单，2024年军用飞机零部件销售额增长18%。</li>
+                                    <li>与RTX合作开发电动飞机动力系统，预计2026年量产。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="md:col-span-2">
+                            <h4 class="font-medium text-lg mb-2 text-secondary-600 dark:text-secondary-400">电动汽车</h4>
+                            <div class="prose dark:prose-invert max-w-none">
+                                <ul>
+                                    <li>eMobility部门营收6.62亿美元，电池管理系统(BMS)市占率提升至12%。</li>
+                                    <li>收购Royal Power Solutions后，高压连接器产能翻倍，满足特斯拉Cybertruck订单需求。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest News -->
+    <section id="latest-news" class="py-16 bg-gray-100 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8 text-center animate-on-scroll" style="transform: translateY(20px);">最新新闻动态</h2>
+                
+                <div class="bg-white dark:bg-gray-700 rounded-xl shadow-sm p-6 mb-8 animate-on-scroll" style="transform: translateY(20px);">
+                    <h3 class="text-xl font-semibold mb-4">市场动态</h3>
+                    <div class="prose dark:prose-invert max-w-none">
+                        <ul>
+                            <li><strong>聚焦高增长领域：</strong> 伊顿明确将数据中心、电网现代化、电气化（覆盖住宅、工商业、交通等领域）和工业自动化视为关键增长驱动力，并投入巨资扩大相关产能（如在南卡罗来纳州投资3.4亿美元新建变压器工厂以满足数据中心、电网等需求）。</li>
+                            <li><strong>拓展分销与合作：</strong> 通过分销Bezares的液压泵产品（变量流泵、自卸车泵），扩展其在移动和工业液压应用领域的产品组合和市场覆盖。与Treehouse建立战略合作，利用其安装平台加速美国家庭电动汽车充电和电气化解决方案的普及。</li>
+                            <li><strong>关注新兴趋势与研究：</strong> 发布关于家庭电气化、数据中心扩展（尤其关注AI/ML带来的机遇与挑战）、AI/ML应用潜力的研究报告或内容，显示其对市场趋势的密切跟踪和前瞻布局。</li>
+                            <li><strong>售后市场扩张：</strong> 积极拓展售后市场业务，包括提供低压辅助电源移动解决方案和Endurant自动变速箱(AMT)零件，以及支持其他主流AMT品牌，旨在抓住售后服务的增长机会。</li>
+                            <li><strong>地域扩张与投资：</strong> 除了在美国南卡罗来纳州投资建厂，还在波兰Tczew大幅升级了测试实验室，增强其在欧洲的测试能力，特别是针对电动汽车(EV)动力总成技术。</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-700 rounded-xl shadow-sm p-6 mb-8 animate-on-scroll" style="transform: translateY(20px);">
+                    <h3 class="text-xl font-semibold mb-4">产品动态</h3>
+                    <div class="prose dark:prose-invert max-w-none">
+                        <h4 class="font-medium text-lg">电力设备与配电</h4>
+                        <ul>
+                            <li><strong>变压器：</strong> 投资扩大三相变压器产能，满足市场短缺和需求。</li>
+                            <li><strong>开关设备与组件：</strong> 为纽约NY CREATES半导体研究设施提供中低压开关设备；为迈阿密Metromover提供低压空气断路器和电机控制元件改造老旧变电站。</li>
+                            <li><strong>住宅电气：</strong> 推出太阳能就绪型电表断路器、更新AFCI(电弧故障断路器)相关信息、推广Wi-Fi智能接线设备(如户外插座)。</li>
+                            <li><strong>数据中心产品：</strong> 推出SmartRack模块化数据中心(适用于AI和边缘计算)，更新Tripp Lite系列非网管以太网交换机，推广智能配电盘/开关柜、预制式电力模块(e-house/IPA)。</li>
+                        </ul>
+                        
+                        <h4 class="font-medium text-lg mt-6">新能源与储能</h4>
+                        <ul>
+                            <li><strong>储能系统：</strong> 正式在北美推出面向工商业客户的xStorage电池储能系统(BESS)，容量从250kWh到1000kWh，支持微电网和需求响应。为威斯康星州净零耗能学校提供包含xStorage BESS的太阳能+储能微电网解决方案。</li>
+                            <li><strong>电动汽车充电：</strong> 重点推广V2H(车辆到家庭)充电能力和AbleEdge家庭能源管理系统，并与Munich Electrification合作开发电池配置开关(BCS)以优化EV充电。与Treehouse合作简化安装流程。</li>
+                            <li><strong>微电网控制器：</strong> 推出集成在开关柜中的新型微电网控制器。</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-700 rounded-xl shadow-sm p-6 animate-on-scroll" style="transform: translateY(20px);">
+                    <h3 class="text-xl font-semibold mb-4">技术动态</h3>
+                    <div class="prose dark:prose-invert max-w-none">
+                        <h4 class="font-medium text-lg">电气化与能源管理</h4>
+                        <ul>
+                            <li><strong>家庭/楼宇即电网 (Home/Buildings as a Grid)：</strong> 作为核心战略推广，整合分布式能源(太阳能、储能、EV)，实现能源优化、韧性和成本节约。</li>
+                            <li><strong>V2H技术：</strong> 研发并展示车辆到家庭的反向供电技术。</li>
+                            <li><strong>微电网与储能集成：</strong> 开发集成式微电网控制器和BESS系统，具备孤岛运行能力。</li>
+                            <li><strong>智能连接技术：</strong> 应用于家庭电气化，提升效率和自主性。</li>
+                        </ul>
+                        
+                        <h4 class="font-medium text-lg mt-6">数字化与智能化</h4>
+                        <ul>
+                            <li><strong>AI/ML应用：</strong> 研究并推广AI/ML在数据中心、制造业、楼宇运营中的应用，通过Brightlayer软件提供支持。</li>
+                            <li><strong>负载传感技术：</strong> 应用于合作分销的Bezares液压泵。</li>
+                            <li><strong>远程监控与预测性维护：</strong> 通过Brightlayer实现设备健康监测和系统管理。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusion -->
+    <section class="py-16 bg-gradient-to-r from-primary-600 to-primary-800 text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center animate-on-scroll" style="transform: translateY(20px);">
+                <h2 class="text-3xl font-bold mb-6">总结</h2>
+                <div class="prose prose-invert max-w-none mx-auto">
+                    <p class="text-xl">伊顿通过"电气化+数字化"双轮驱动，在数据中心、航空航天等高增长市场持续扩大份额。其并购策略聚焦技术补强与区域渗透，同时通过供应链韧性建设和成本优化巩固盈利能力。对中国UPS企业而言，需重点关注伊顿在高压直流供电、预测性维护等领域的专利布局，以及模块化电源的快速交付能力对行业标准的重塑影响。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Author Info -->
+    <section id="author" class="py-12 bg-gray-100 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center animate-on-scroll" style="transform: translateY(20px);">
+                <div class="bg-white dark:bg-gray-700 rounded-xl shadow-sm p-8 inline-block">
+                    <div class="flex flex-col items-center">
+                        <div class="w-24 h-24 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center text-primary-600 dark:text-primary-300 mb-4">
+                            <i class="fas fa-user text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">邓晨阳</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mt-2">市场发展处</p>
+                        <div class="flex space-x-4 mt-4">
+                            <a href="#" class="text-gray-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                                <i class="fas fa-file-pdf text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 py-8">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <p class="mb-4">© 2024 伊顿公司. 保留所有权利.</p>
+                <div class="flex justify-center space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">隐私政策</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">使用条款</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">联系我们</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 p-3 bg-primary-600 text-white rounded-full shadow-lg hover:bg-primary-700 transition-colors opacity-0 invisible transform translate-y-4 transition-all duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        themeToggle.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible', 'translate-y-4');
+                backToTopButton.classList.add('opacity-100', 'visible', 'translate-y-0');
+            } else {
+                backToTopButton.classList.add('opacity-0', 'invisible', 'translate-y-4');
+                backToTopButton.classList.remove('opacity-100', 'visible', 'translate-y-0');
+            }
+        });
+
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Scroll animation
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>

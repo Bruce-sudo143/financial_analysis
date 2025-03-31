@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>罗格朗 2024 年全年财报分析</title>
+    <meta name="description" content="罗格朗2024年全年财报可视化分析报告">
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com/3.4.1"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        secondary: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            200: '#ddd6fe',
+                            300: '#c4b5fd',
+                            400: '#a78bfa',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                            800: '#5b21b6',
+                            900: '#4c1d95',
+                        },
+                        accent: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        dark: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans SC"', 'system-ui', '-apple-system', 'sans-serif'],
+                        serif: ['"Noto Serif SC"', 'Georgia', 'serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
+                    }
+                }
+            },
+            darkMode: 'class',
+        }
+    </script>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Mermaid for diagrams -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            fontFamily: '"Noto Sans SC", sans-serif',
+        });
+    </script>
+    
+    <!-- Google Fonts - Noto Sans SC and Noto Serif SC -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        .prose :where(code):not(:where([class~="not-prose"] *))::before,
+        .prose :where(code):not(:where([class~="not-prose"] *))::after {
+            content: none;
+        }
+        .prose :where(code):not(:where([class~="not-prose"] *)) {
+            font-size: 0.875em;
+            font-weight: 500;
+            background-color: rgb(241 245 249);
+            border-radius: 0.25rem;
+            padding: 0.25rem 0.375rem;
+        }
+        .dark .prose :where(code):not(:where([class~="not-prose"] *)) {
+            background-color: rgb(30 41 59);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .btn-hover {
+            transition: all 0.2s ease;
+        }
+        .btn-hover:hover {
+            transform: scale(1.02);
+        }
+        .animate-delay-100 {
+            animation-delay: 0.1s;
+        }
+        .animate-delay-200 {
+            animation-delay: 0.2s;
+        }
+        .animate-delay-300 {
+            animation-delay: 0.3s;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
+    <!-- Header -->
+    <header class="bg-white dark:bg-gray-800 shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-r from-primary-600 to-secondary-600 flex items-center justify-center">
+                    <i class="fas fa-chart-line text-white text-lg"></i>
+                </div>
+                <h1 class="text-xl font-bold text-gray-800 dark:text-white">罗格朗财报分析</h1>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                    <i class="fas fa-moon dark:hidden text-gray-600"></i>
+                    <i class="fas fa-sun hidden dark:block text-yellow-300"></i>
+                </button>
+                <a href="#contact" class="btn-hover px-4 py-2 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 transition-colors">
+                    赞赏作者
+                </a>
+                <a href="index.html" class="btn-hover px-4 py-2 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 transition-colors">
+                    返回主页 <i class="fas fa-home ml-1"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-primary-500 to-secondary-600 text-white py-16">
+        <div class="container mx-auto px-4 text-center animate-fade-in">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 animate-slide-up">罗格朗 2024 年全年财报分析</h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-8 opacity-90 animate-slide-up animate-delay-100">在建筑市场普遍低迷的背景下实现稳健增长</p>
+            <div class="flex flex-wrap justify-center gap-4 animate-slide-up animate-delay-200">
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 min-w-[200px]">
+                    <p class="text-sm opacity-80">全年销售额</p>
+                    <p class="text-2xl font-bold">€86.489亿</p>
+                    <p class="text-sm">+2.8% YoY</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 min-w-[200px]">
+                    <p class="text-sm opacity-80">调整后营运利润</p>
+                    <p class="text-2xl font-bold">€17.760亿</p>
+                    <p class="text-sm">利润率 20.5%</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 min-w-[200px]">
+                    <p class="text-sm opacity-80">数据中心业务</p>
+                    <p class="text-2xl font-bold">占20%</p>
+                    <p class="text-sm">+15% 有机增长</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <!-- Summary Section -->
+        <section class="mb-16 animate-fade-in">
+            <div class="prose prose-lg dark:prose-invert max-w-none">
+                <h2 class="text-3xl font-bold mb-6 text-primary-700 dark:text-primary-400 border-b pb-2">核心摘要</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center mr-4">
+                                <i class="fas fa-chart-line text-primary-600 dark:text-primary-400 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">业绩亮点</h3>
+                        </div>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
+                                <span>2024年合并销售额达86.489亿欧元，同比增长+2.8%</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
+                                <span>有机销售增长+1.0%，第四季度表现优异(+6.2%)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
+                                <span>数据中心业务成为重要增长引擎，占销售额20%</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
+                                <span>调整后营运利润17.760亿欧元，利润率20.5%</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-secondary-100 dark:bg-secondary-900 flex items-center justify-center mr-4">
+                                <i class="fas fa-bullseye text-secondary-600 dark:text-secondary-400 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">战略重点</h3>
+                        </div>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-right text-primary-500 mt-1 mr-2"></i>
+                                <span>积极并购策略：过去12个月宣布9项收购</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-right text-primary-500 mt-1 mr-2"></i>
+                                <span>聚焦数据中心、能源转型和数字化生活方式</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-right text-primary-500 mt-1 mr-2"></i>
+                                <span>持续创新：大量新产品推出提升客户满意度</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-right text-primary-500 mt-1 mr-2"></i>
+                                <span>2025年目标：销售增长+6%至+10%</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Revenue Section -->
+        <section class="mb-16 animate-fade-in">
+            <div class="prose prose-lg dark:prose-invert max-w-none">
+                <h2 class="text-3xl font-bold mb-6 text-primary-700 dark:text-primary-400 border-b pb-2">1. 营收数据及变化</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                        <h3 class="text-xl font-bold mb-4 flex items-center">
+                            <i class="fas fa-euro-sign text-primary-500 mr-2"></i>
+                            整体营收表现
+                        </h3>
+                        <div class="space-y-4">
+                            <div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">2024年合并销售额</p>
+                                <p class="text-2xl font-bold">86.489亿欧元</p>
+                                <p class="text-sm">较2023年84.169亿欧元增长 <span class="text-accent-600 font-medium">+2.8%</span></p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">有机销售增长</p>
+                                <p class="text-2xl font-bold">+1.0%</p>
+                                <p class="text-sm">第四季度表现突出 <span class="text-accent-600 font-medium">+6.2%</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                        <h3 class="text-xl font-bold mb-4 flex items-center">
+                            <i class="fas fa-chart-pie text-primary-500 mr-2"></i>
+                            营收增长构成
+                        </h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium">有机增长</span>
+                                    <span class="text-sm">+1.0%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                                    <div class="bg-primary-500 h-2.5 rounded-full" style="width: 35%"></div>
+                                </div>
+                                <p class="text-xs mt-1 text-gray-500 dark:text-gray-400">成熟国家市场 +1.4% | 新兴经济体 -0.1%</p>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium">合并范围变化</span>
+                                    <span class="text-sm">+2.2%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                                    <div class="bg-secondary-500 h-2.5 rounded-full" style="width: 78%"></div>
+                                </div>
+                                <p class="text-xs mt-1 text-gray-500 dark:text-gray-400">收购贡献 +2.8% | 剥离俄罗斯业务 -0.6%</p>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium">汇率影响</span>
+                                    <span class="text-sm">-0.5%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                                    <div class="bg-gray-500 h-2.5 rounded-full" style="width: 18%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-bold mt-8 mb-4">销售额增长分解</h3>
+                <div class="mermaid mb-8">
+                    graph LR
+                        A[2023年销售额: €8,416.9m] --> B(2024年销售额: €8,648.9m);
+                        B --> C{总增长: +2.8%};
+                        C --> D[有机增长: +1.0%];
+                        C --> E[合并范围变化: +2.2%];
+                        C --> F[汇率影响: -0.5%];
+                        E --> G[收购贡献: +2.8%];
+                        E --> H[剥离俄罗斯业务影响: -0.6%];
+                        D --> I[成熟国家: +1.4%];
+                        D --> J[新兴经济体: -0.1%];
+
+                        style B fill:#f9f,stroke:#333,stroke-width:2px
+                        style C fill:#ccf,stroke:#333,stroke-width:2px
+                </div>
+
+                <h3 class="text-2xl font-bold mt-8 mb-4">增长驱动因素</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                        <h4 class="font-bold text-lg mb-3 flex items-center">
+                            <i class="fas fa-database text-primary-500 mr-2"></i>
+                            数据中心业务
+                        </h4>
+                        <p>数据中心业务实现接近<span class="font-bold text-accent-600">+15%</span>的有机增长，已成为集团重要的增长引擎，按备考基准计算占销售额的<span class="font-bold">20%</span>。</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                        <h4 class="font-bold text-lg mb-3 flex items-center">
+                            <i class="fas fa-handshake text-primary-500 mr-2"></i>
+                            收购策略
+                        </h4>
+                        <p>过去12个月宣布了<span class="font-bold">9项收购</span>，为销售增长贡献了<span class="font-bold text-accent-600">+2.8%</span>，显著增强了在数据中心、健康互联市场以及大洋洲地区的实力。</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                        <h4 class="font-bold text-lg mb-3 flex items-center">
+                            <i class="fas fa-lightbulb text-primary-500 mr-2"></i>
+                            产品创新
+                        </h4>
+                        <p>动态创新，特别是大量新产品的推出满足了能源转型和数字化趋势的需求，提升了客户满意度。</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                        <h4 class="font-bold text-lg mb-3 flex items-center">
+                            <i class="fas fa-globe-americas text-primary-500 mr-2"></i>
+                            地域差异
+                        </h4>
+                        <p>北美市场的强劲增长（<span class="font-bold text-accent-600">+4.5%</span>）部分抵消了欧洲市场的下滑（<span class="font-bold">-2.3%</span>）。</p>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-bold mt-8 mb-4">2025年展望</h3>
+                <div class="bg-blue-50 dark:bg-blue-900/30 rounded-xl p-6 border border-blue-200 dark:border-blue-800">
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="text-center">
+                            <p class="text-sm text-gray-500 dark:text-gray-400">销售增长目标</p>
+                            <p class="text-2xl font-bold text-primary-600">+6% 至 +10%</p>
+                            <p class="text-sm">有机+收购，不含汇率影响</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-sm text-gray-500 dark:text-gray-400">收购影响</p>
+                            <p class="text-2xl font-bold text-primary-600">约 +4%</p>
+                            <p class="text-sm">基于已宣布的收购</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-sm text-gray-500 dark:text-gray-400">汇率影响</p>
+                            <p class="text-2xl font-bold text-primary-600">约 +1.5%</p>
+                            <p class="text-sm">基于2025年1月平均汇率</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profit Section -->
+        <section class="mb-16 animate-fade-in">
+            <div class="prose prose-lg dark:prose-invert max-w-none">
+                <h2 class="text-3xl font-bold mb-6 text-primary-700 dark:text-primary-400 border-b pb-2">2. 利润数据及变化</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                        <h3 class="text-xl font-bold mb-4 flex items-center">
+                            <i class="fas fa-coins text-primary-500 mr-2"></i>
+                            盈利能力指标
+                        </h3>
+                        <div class="space-y-6">
+                            <div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">调整后营运利润</p>
+                                <p class="text-2xl font-bold">17.760亿欧元</p>
+                                <p class="text-sm">较2023年增长 <span class="text-accent-600 font-medium">+0.3%</span></p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">调整后营运利润率</p>
+                                <div class="flex items-center">
+                                    <p class="text-2xl font-bold mr-4">20.5%</p>
+                                    <div class="text-sm bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">
+                                        <span class="text-gray-500 dark:text-gray-400">2023年: </span>
+                                        <span>21.0%</span>
+                                    </div>
+                                </div>
+                                <p class="text-sm mt-1">未计入收购影响为 <span class="font-medium">20.6%</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                        <h3 class="text-xl font-bold mb-4 flex items-center">
+                            <i class="fas fa-chart-line text-primary-500 mr-2"></i>
+                            净利润表现
+                        </h3>
+                        <div class="space-y-6">
+                            <div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">归属于集团的净利润</p>
+                                <p class="text-2xl font-bold">11.664亿欧元</p>
+                                <p class="text-sm">较2023年增长 <span class="text-accent-600 font-medium">+1.6%</span></p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">净利润率</p>
+                                <div class="flex items-center">
+                                    <p class="text-2xl font-bold mr-4">13.5%</p>
+                                    <div class="text-sm bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">
+                                        <span class="text-gray-500 dark:text-gray-400">2023年: </span>
+                                        <span>13.6%</span>
+                                    </div>
+                                </div>
+                                <p class="text-sm mt-1">金融费用增加至1.539亿欧元</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-bold mb-4">2024年主要盈利指标</h3>
+                <div class="mermaid mb-8">
+                    graph TD
+                        A[销售额: EUR 8648.9m +2.8%] --> B[调整后营运利润: EUR 1776.0m +0.3%]
+                        B --> C[调整后营运利润率: 20.5% 2023: 21.0%]
+                        C --> D[未计收购影响利润率: 20.6%]
+                        A --> E[营运利润: EUR 1642.7m +3.2%]
+                        E --> F[营运利润率: 19.0% 2023: 18.9%]
+                        A --> G[净利润: EUR 1166.4m +1.6%]
+                        G --> H[净利润率: 13.5% 2023: 13.6%]
+                        A --> I[自由现金流: EUR 1290.5m -18.6%]
+                        I --> J[自由现金流利润率: 14.9% 2023: 18.8%]
+                        J --> K[现金转换率: 111%]
+                        A --> L[标准化自由现金流: EUR 1357.0m +2.3%]
+                        L --> M[标准化自由现金流利润率: 15.7% 2023: 15.8%]
+                    
+                        style B fill:#d6fcd6,stroke:#333,stroke-width:2px
+                        style G fill:#d6fcd6,stroke:#333,stroke-width:2px
+                        style I fill:#fcd6d6,stroke:#333,stroke-width:2px
+                </div>
+
+                <h3 class="text-2xl font-bold mt-8 mb-4">原因分析</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                        <h4 class="font-bold text-lg mb-3 flex items-center">
+                            <i class="fas fa-shield-alt text-primary-500 mr-2"></i>
+                            盈利韧性
+                        </h4>
+                        <p>尽管销售增长面临挑战且收购带来整合成本，罗格朗仍维持了超过20%的高调整后营运利润率，体现了公司在成本控制、定价能力和运营效率方面的出色表现。</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                        <h4 class="font-bold text-lg mb-3 flex items-center">
+                            <i class="fas fa-exchange-alt text-primary-500 mr-2"></i>
+                            收购影响
+                        </h4>
+                        <p>收购活动虽然驱动了销售增长，但也导致净负债增加，并可能对调整后营运利润率产生轻微的稀释效应（每年-30至-50个基点），同时增加了相关的摊销费用。</p>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-bold mt-8 mb-4">2025年展望</h3>
+                <div class="bg-blue-50 dark:bg-blue-900/30 rounded-xl p-6 border border-blue-200 dark:border-blue-800">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center mr-4">
+                            <i class="fas fa-bullseye text-primary-600 dark:text-primary-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">调整后营运利润率目标</h4>
+                            <p class="text-primary-600 font-bold">整体保持稳定</p>
+                            <p class="text-sm">与2024年相比，公司有信心在加速增长的同时，通过有机改善和收购整合来维持高盈利水平。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Regional Performance Section -->
+        <section class="mb-16 animate-fade-in">
+            <div class="prose prose-lg dark:prose-invert max-w-none">
+                <h2 class="text-3xl font-bold mb-6 text-primary-700 dark:text-primary-400 border-b pb-2">3. 分区域表现</h2>
+                
+                <div class="mermaid mb-8">
+                    graph TD
+                        subgraph 全球增长
+                            A[欧洲 40.0%] --> B[增长: -2.3% / +0.6%]
+                            C[北美及中美洲 40.1%] --> D[增长: +4.5% / +11.6%]
+                            E[世界其他地区 19.9%] --> F[增长: +1.3% / +7.2%]
+                        end
+                    
+                        subgraph 欧洲细分
+                            B --> G[成熟经济体: -3.1% / -1.5%]
+                            B --> H[新兴经济体: +3.4% / +18.2%]
+                        end
+                    
+                        subgraph 北美及中美洲细分
+                            D --> I[美国 37.0%: +5.7% / +13.3%]
+                            D --> J[加拿大/墨西哥: 下滑]
+                        end
+                    
+                        subgraph 世界其他地区细分
+                            F --> K[亚太 12.1%: -2.7% / +0.4%]
+                            F --> L[非洲/中东 3.7%: +6.9% / +13.2%]
+                            F --> M[南美洲 4.1%: +8.8% / +23.0%]
+                        end
+                    
+                        style A fill:#lightblue
+                        style C fill:#lightgreen
+                        style E fill:#lightyellow
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center mr-3">
+                                <i class="fas fa-flag-europe text-blue-600 dark:text-blue-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">欧洲</h3>
+                        </div>
+                        <div class="mb-4">
+                            <p class="text-sm text-gray-500 dark:text-gray-400">占集团收入 40.0%</p>
+                            <p class="text-2xl font-bold text-blue-600">-2.3%</p>
+                            <p class="text-sm">全年有机增长 | Q4: <span class="text-blue-600">+0.6%</span></p>
+                        </div>
+                        <div class="space-y-3">
+                            <div>
+                                <p class="text-sm font-medium">成熟经济体</p>
+                                <p class="text-sm">占集团收入 34.8% | <span class="text-red-500">-3.1%</span> (Q4: -1.5%)</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">意大利和西班牙表现良好，法国和英国下滑</p>
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium">新兴经济体</p>
+                                <p class="text-sm"><span class="text-green-500">+3.4%</span> (Q4: +18.2%)</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">土耳其销售增长和东欧的良好韧性</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mr-3">
+                                <i class="fas fa-flag-usa text-green-600 dark:text-green-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">北美和中美洲</h3>
+                        </div>
+                        <div class="mb-4">
+                            <p class="text-sm text-gray-500 dark:text-gray-400">占集团收入 40.1%</p>
+                            <p class="text-2xl font-bold text-green-600">+4.5%</p>
+                            <p class="text-sm">全年有机增长 | Q4: <span class="text-green-600">+11.6%</span></p>
+                        </div>
+                        <div class="space-y-3">
+                            <div>
+                                <p class="text-sm font-medium">美国</p>
+                                <p class="text-sm">占集团收入 37.0% | <span class="text-green-500">+5.7%</span> (Q4: +13.3%)</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">数据中心产品的显著成功</p>
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium">加拿大和墨西哥</p>
+                                <p class="text-sm text-red-500">销售额下滑</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-yellow-100 dark:bg-yellow-900 flex items-center justify-center mr-3">
+                                <i class="fas fa-globe text-yellow-600 dark:text-yellow-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">世界其他地区</h3>
+                        </div>
+                        <div class="mb-4">
+                            <p class="text-sm text-gray-500 dark:text-gray-400">占集团收入 19.9%</p>
+                            <p class="text-2xl font-bold text-yellow-600">+1.3%</p>
+                            <p class="text-sm">全年有机增长 | Q4: <span class="text-yellow-600">+7.2%</span></p>
+                        </div>
+                        <div class="space-y-3">
+                            <div>
+                                <p class="text-sm font-medium">亚太地区</p>
+                                <p class="text-sm">占集团收入 12.1% | <span class="text-red-500">-2.7%</span> (Q4: +0.4%)</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">印度增长未能抵消中国市场的急剧下滑</p>
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium">非洲/中东</p>
+                                <p class="text-sm">占集团收入 3.7% | <span class="text-green-500">+6.9%</span> (Q4: +13.2%)</p>
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium">南美洲</p>
+                                <p class="text-sm">占集团收入 4.1% | <span class="text-green-500">+8.8%</span> (Q4: +23.0%)</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">巴西和智利增长显著</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-bold mt-8 mb-4">区域表现分析</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                        <h4 class="font-bold text-lg mb-3 flex items-center">
+                            <i class="fas fa-building text-primary-500 mr-2"></i>
+                            欧洲市场挑战
+                        </h4>
+                        <p>欧洲市场整体下滑，主要原因是"多数国家的建筑市场处于萎缩状态"。成熟经济体有机下滑<span class="font-bold">-3.1%</span>，而新兴经济体则增长<span class="font-bold text-accent-600">+3.4%</span>，展现出不同的增长活力。</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                        <h4 class="font-bold text-lg mb-3 flex items-center">
+                            <i class="fas fa-server text-primary-500 mr-2"></i>
+                            北美增长引擎
+                        </h4>
+                        <p>北美和中美洲是罗格朗增长的主要引擎，全年有机增长<span class="font-bold text-accent-600">+4.5%</span>，第四季度加速至<span class="font-bold">+11.6%</span>。美国表现尤为突出（<span class="font-bold">+5.7%</span>），主要归功于数据中心产品的显著成功。</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                        <h4 class="font-bold text-lg mb-3 flex items-center">
+                            <i class="fas fa-chart-line text-primary-500 mr-2"></i>
+                            亚太地区分化
+                        </h4>
+                        <p>亚太地区全年下滑<span class="font-bold">-2.7%</span>，印度的良好增长未能抵消中国市场的急剧下滑（建筑市场仍处于深度下滑状态）。非洲/中东（<span class="font-bold text-accent-600">+6.9%</span>）和南美洲（<span class="font-bold">+8.8%</span>）则展现出强劲增长。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Market Performance Section -->
+        <section class="mb-16 animate-fade-in">
+            <div class="prose prose-lg dark:prose-invert max-w-none">
+                <h2 class="text-3xl font-bold mb-6 text-primary-700 dark:text-primary-400 border-b pb-2">4. 分终端市场表现</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center mr-4">
+                                <i class="fas fa-database text-purple-600 dark:text-purple-400 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">数据中心业务</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">2024年销售额</p>
+                                <p class="text-2xl font-bold">16亿欧元</p>
+                                <p class="text-sm">备考基准计算占集团销售额 <span class="font-bold">20%</span></p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">增长速度</p>
+                                <p class="text-2xl font-bold text-accent-600">+15%</p>
+                                <p class="text-sm">2024年有机增长 | 5年CAGR: <span class="font-bold">+19%</span></p>
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium mb-2">产品与解决方案</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="text-xs bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-2 py-1 rounded">系统电源保护</span>
+                                    <span class="text-xs bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-2 py-1 rounded">配电解决方案</span>
+                                    <span class="text-xs bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-2 py-1 rounded">机架管理</span>
+                                    <span class="text-xs bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-2 py-1 rounded">能耗优化</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-4 card-hover">
+                            <div class="flex items-center mb-2">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center mr-2">
+                                    <i class="fas fa-bolt text-blue-600 dark:text-blue-400 text-sm"></i>
+                                </div>
+                                <h4 class="font-bold">能源转型</h4>
+                            </div>
+                            <ul class="text-sm space-y-1">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-accent-500 mt-1 mr-1 text-xs"></i>
+                                    <span>Keor MP三相UPS</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-accent-500 mt-1 mr-1 text-xs"></i>
+                                    <span>联网DPX3断路器</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-accent-500 mt-1 mr-1 text-xs"></i>
+                                    <span>智能楼宇管理系统</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-4 card-hover">
+                            <div class="flex items-center mb-2">
+                                <div class="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mr-2">
+                                    <i class="fas fa-home text-green-600 dark:text-green-400 text-sm"></i>
+                                </div>
+                                <h4 class="font-bold">数字化生活方式</h4>
+                            </div>
+                            <ul class="text-sm space-y-1">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-accent-500 mt-1 mr-1 text-xs"></i>
+                                    <span>LINEA 5000</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-accent-500 mt-1 mr-1 text-xs"></i>
+                                    <span>KNX Mallia Senses</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-accent-500 mt-1 mr-1 text-xs"></i>
+                                    <span>Home + Control应用</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-4 card-hover">
+                            <div class="flex items-center mb-2">
+                                <div class="w-8 h-8 rounded-full bg-yellow-100 dark:bg-yellow-900 flex items-center justify-center mr-2">
+                                    <i class="fas fa-plug text-yellow-600 dark:text-yellow-400 text-sm"></i>
+                                </div>
+                                <h4 class="font-bold">基础设施产品</h4>
+                            </div>
+                            <ul class="text-sm space-y-1">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-accent-500 mt-1 mr-1 text-xs"></i>
+                                    <span>Céliane开关</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-accent-500 mt-1 mr-1 text-xs"></i>
+                                    <span>REV建筑照明</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-accent-500 mt-1 mr-1 text-xs"></i>
+                                    <span>Linkeo墙装机柜</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-4 card-hover">
+                            <div class="flex items-center mb-2">
+                                <div class="w-8 h-8 rounded-full bg-red-100 dark:bg-red-900 flex items-center justify-center mr-2">
+                                    <i class="fas fa-heartbeat text-red-600 dark:text-red-400 text-sm"></i>
+                                </div>
+                                <h4 class="font-bold">健康互联</h4>
+                            </div>
+                            <ul class="text-sm space-y-1">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-accent-500 mt-1 mr-1 text-xs"></i>
+                                    <span>Enovation收购</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-accent-500 mt-1 mr-1 text-xs"></i>
+                                    <span>Performation收购</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-accent-500 mt-1 mr-1 text-xs"></i>
+                                    <span>辅助生活领域</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-bold mt-8 mb-4">数据中心业务增长分析</h3>
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 mb-8 card-hover">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold text-lg mb-3">市场地位与规模</h4>
+                            <p>罗格朗已在数据中心领域建立了领先地位，并将其视为未来几年的强大增长动力。2024年销售额达16亿欧元，按备考基准计算为18亿欧元，占集团总销售额的20%。相较于2019年的7亿欧元有了显著增长。</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-3">增长驱动力</h4>
+                            <p>数据中心业务的增长受益于全球数字化投资。罗格朗的产品集成了最前沿的技术，完美满足了全球应用数字化、云计算、软件即服务(SaaS)和物联网(IoT)解决方案的部署和普及，甚至人工智能(AI)发展的需求和要求。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-bold mt-8 mb-4">终端市场策略总结</h3>
+                <div class="bg-blue-50 dark:bg-blue-900/30 rounded-xl p-6 border border-blue-200 dark:border-blue-800">
+                    <p>罗格朗的终端市场策略表现出明显的侧重：<span class="font-bold">极度重视并成功抓住了数据中心的高速增长机遇</span>，这对其整体业绩起到了关键支撑作用。同时，公司积极布局能源转型和数字化生活方式等增长性领域，并通过收购大胆进入健康互联新赛道。传统的基础设施业务虽受市场环境影响，但仍通过持续创新维持。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Acquisitions Section -->
+        <section class="mb-16 animate-fade-in">
+            <div class="prose prose-lg dark:prose-invert max-w-none">
+                <h2 class="text-3xl font-bold mb-6 text-primary-700 dark:text-primary-400 border-b pb-2">5. 重大并购事件</h2>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 mb-8 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center mr-4">
+                            <i class="fas fa-handshake text-primary-600 dark:text-primary-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">并购策略概览</h3>
+                    </div>
+                    <p>罗格朗在2024年显著加快了其收购步伐，过去12个月内宣布了<span class="font-bold">9项收购</span>，旨在补充技术专长、扩大地域覆盖或进入新市场。这些收购体现了其将收购作为核心增长战略（2030年目标中，收购贡献+3%至+5%的年均增长）和资本配置优先项（计划将至少50%的平均自由现金流用于收购，2025-2030年总额约50亿欧元）的决心。</p>
+                </div>
+
+                <h3 class="text-2xl font-bold mt-8 mb-4">2024年主要收购</h3>
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                        <h4 class="font-bold text-lg mb-3 flex items-center">
+                            <i class="fas fa-database text-purple-500 mr-2"></i>
+                            加强数据中心业务
+                        </h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <div class="w-6 h-6 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
+                                    <i class="fas fa-plus text-purple-600 dark:text-purple-400 text-xs"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Netrack</p>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400">印度机架专家，增强在印度数据中心市场的机架解决方案能力</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-6 h-6 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
+                                    <i class="fas fa-plus text-purple-600 dark:text-purple-400 text-xs"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Vass</p>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400">澳大利亚领先的母线槽制造商，强化在大洋洲的电力分配解决方案</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-6 h-6 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
+                                    <i class="fas fa-plus text-purple-600 dark:text-purple-400 text-xs"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Power Bus Way</p>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400">北美领先的电力电缆母线专家，拓展在北美市场的电力传输解决方案</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                        <h4 class="font-bold text-lg mb-3 flex items-center">
+                            <i class="fas fa-heartbeat text-red-500 mr-2"></i>
+                            首次进入健康互联市场
+                        </h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <div class="w-6 h-6 rounded-full bg-red-100 dark:bg-red-900 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
+                                    <i class="fas fa-plus text-red-600 dark:text-red-400 text-xs"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Enovation</p>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400">荷兰公司，年销售额约6000万欧元</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-6 h-6 rounded-full bg-red-100 dark:bg-red-900 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
+                                    <i class="fas fa-plus text-red-600 dark:text-red-400 text-xs"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Performation</p>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400">荷兰公司，年销售额超2000万欧元，140多名员工，近60人专注于研发</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                        <h4 class="font-bold text-lg mb-3 flex items-center">
+                            <i class="fas fa-globe-oceania text-blue-500 mr-2"></i>
+                            大洋洲市场扩张
+                        </h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <div class="w-6 h-6 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
+                                    <i class="fas fa-plus text-blue-600 dark:text-blue-400 text-xs"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium">MSS</p>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400">新西兰电缆管理专家，年销售额约1000万欧元</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-6 h-6 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
+                                    <i class="fas fa-plus text-blue-600 dark:text-blue-400 text-xs"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium">APP</p>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400">澳大利亚领先的电缆管理公司，年销售额约1亿欧元</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                        <h4 class="font-bold text-lg mb-3 flex items-center">
+                            <i class="fas fa-recycle text-green-500 mr-2"></i>
+                            循环经济专长
+                        </h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <div class="w-6 h-6 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
+                                    <i class="fas fa-plus text-green-600 dark:text-green-400 text-xs"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Circul'R（股权投资）</p>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400">法国循环经济专业知识和咨询公司，37名员工，为120多家公司提供服务</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-bold mt-8 mb-4">并购策略分析</h3>
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                    <p>罗格朗的并购策略目标清晰，围绕其核心战略支柱展开：</p>
+                    <ol class="list-decimal pl-5 space-y-2 mt-3">
+                        <li><span class="font-bold">强化高增长领域：</span>大量收购集中在数据中心领域，以巩固和扩大其在该关键市场的领先地位。</li>
+                        <li><span class="font-bold">拓展新增长机遇：</span>通过收购进入健康互联这一新兴且有前景的市场。</li>
+                        <li><span class="font-bold">加强地域覆盖：</span>通过收购显著提升在大洋洲等特定区域的市场份额。</li>
+                        <li><span class="font-bold">提升ESG能力：</span>投资于Circul'R以加速在循环经济方面的进展，符合其可持续发展承诺。</li>
+                    </ol>
+                    <p class="mt-4">这种积极且有针对性的并购活动是罗格朗实现其增长目标（尤其是非有机增长部分）的关键手段。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Products Section -->
+        <section class="mb-16 animate-fade-in">
+            <div class="prose prose-lg dark:prose-invert max-w-none">
+                <h2 class="text-3xl font-bold mb-6 text-primary-700 dark:text-primary-400 border-b pb-2">6. 最新产品情况</h2>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 mb-8 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center mr-4">
+                            <i class="fas fa-lightbulb text-primary-600 dark:text-primary-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">创新概览</h3>
+                    </div>
+                    <p>财报中提到，"非常稳定的新产品发布流"和"动态创新，特别是大量新产品的推出"，表明创新是罗格朗战略模式的组成部分。2024年推出了大量新产品，涵盖了其主要业务领域。</p>
+                </div>
+
+                <h3 class="text-2xl font-bold mt-8 mb-4">2024年主要新产品</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                        <h4 class="font-bold text-lg mb-3 flex items-center">
+                            <i class="fas fa-plug text-yellow-500 mr-2"></i>
+                            基础设置产品
+                        </h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-yellow-500 mt-1 mr-2 text-xs"></i>
+                                <span>开关插座系列：Céliane (法国), Light Now (希腊/比利时), Seano (德国/奥地利), Ultra Thin (中国)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-yellow-500 mt-1 mr-2 text-xs"></i>
+                                <span>墙壁固定解决方案：Chief Tempo, Sanus</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-yellow-500 mt-1 mr-2 text-xs"></i>
+                                <span>建筑照明产品：REV (美国)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-yellow-500 mt-1 mr-2 text-xs"></i>
+                                <span>墙装机柜：Linkeo (全球)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                        <h4 class="font-bold text-lg mb-3 flex items-center">
+                            <i class="fas fa-bolt text-blue-500 mr-2"></i>
+                            能源转型领域
+                        </h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-blue-500 mt-1 mr-2 text-xs"></i>
+                                <span><span class="font-bold">Keor MP 三相 UPS</span>：商业和工业应用，包括数据中心</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-blue-500 mt-1 mr-2 text-xs"></i>
+                                <span>联网的 DPX3 断路器</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-blue-500 mt-1 mr-2 text-xs"></i>
+                                <span>Light Up 和 WEOZ 集成智能楼宇管理系统</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                        <h4 class="font-bold text-lg mb-3 flex items-center">
+                            <i class="fas fa-laptop-house text-green-500 mr-2"></i>
+                            数字化生活方式领域
+                        </h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                                <span>带有 Netatmo 楼宇访问接口的 LINEA 5000</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                                <span>KNX Mallia Senses 灯光和温度控制触摸屏</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-green-500 mt-1 mr-2 text-xs"></i>
+                                <span>Home + Control 应用程序升级（集成太阳能管理）</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                        <h4 class="font-bold text-lg mb-3 flex items-center">
+                            <i class="fas fa-server text-purple-500 mr-2"></i>
+                            数据中心领域
+                        </h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-purple-500 mt-1 mr-2 text-xs"></i>
+                                <span><span class="font-bold">Linkeo PDUs (电源分配单元)</span></span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-purple-500 mt-1 mr-2 text-xs"></i>
+                                <span>新的 LCS3 光纤数字基础设施解决方案</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-purple-500 mt-1 mr-2 text-xs"></i>
+                                <span><span class="font-bold">Cable Bus (电缆母线)</span> 和 Cablobend 电缆管理产品</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-bold mt-8 mb-4">产品发布总结</h3>
+                <div class="bg-blue-50 dark:bg-blue-900/30 rounded-xl p-6 border border-blue-200 dark:border-blue-800">
+                    <p>罗格朗的产品发布活动非常活跃，覆盖了从传统基础设施到新兴增长领域的广泛范围。最值得关注的是其在<span class="font-bold">数据中心领域持续推出的新产品</span>，如三相UPS (Keor MP)、PDU、光纤布线系统以及通过收购整合的母线槽和电缆母线产品。这表明罗格朗正不断完善其在数据中心电力链中的整体解决方案能力。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Strategy Section -->
+        <section class="mb-16 animate-fade-in">
+            <div class="prose prose-lg dark:prose-invert max-w-none">
+                <h2 class="text-3xl font-bold mb-6 text-primary-700 dark:text-primary-400 border-b pb-2">7. 行业判断与战略部署</h2>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 mb-8 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center mr-4">
+                            <i class="fas fa-chart-line text-primary-600 dark:text-primary-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">对市场环境的判断</h3>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-exclamation-circle text-red-500 mt-1 mr-2"></i>
+                                    <span>承认<span class="font-bold">建筑市场在许多地区普遍低迷</span>，这是当前的挑战</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                    <span>坚信<span class="font-bold">能源转型和数字化转型</span>是长期、强大的驱动力</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-arrow-up text-blue-500 mt-1 mr-2"></i>
+                                    <span>特别看好<span class="font-bold">数据中心</span>市场，由数字化、云计算、物联网、人工智能等趋势驱动</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-search text-purple-500 mt-1 mr-2"></i>
+                                    <span>关注<span class="font-bold">健康互联</span>等新兴市场的潜力</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-bold mt-8 mb-4">战略重点与行动</h3>
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                        <h4 class="font-bold text-lg mb-3 flex items-center">
+                            <i class="fas fa-bullseye text-primary-500 mr-2"></i>
+                            增长目标
+                        </h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <div class="w-6 h-6 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
+                                    <span class="text-primary-600 dark:text-primary-400 font-bold">1</span>
+                                </div>
+                                <div>
+                                    <p>设定了2025年<span class="font-bold">+6%至+10%</span>的销售增长目标</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-6 h-6 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
+                                    <span class="text-primary-600 dark:text-primary-400 font-bold">2</span>
+                                </div>
+                                <div>
+                                    <p>2030年实现<span class="font-bold">120-150亿欧元</span>的销售目标</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                        <h4 class="font-bold text-lg mb-3 flex items-center">
+                            <i class="fas fa-cogs text-primary-500 mr-2"></i>
+                            执行策略
+                        </h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <div class="w-6 h-6 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
+                                    <span class="text-primary-600 dark:text-primary-400 font-bold">1</span>
+                                </div>
+                                <div>
+                                    <p>坚持<span class="font-bold">有机增长</span>（创新、加强高增长领域）和<span class="font-bold">外延增长</span>（积极并购）并重</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-6 h-6 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
+                                    <span class="text-primary-600 dark:text-primary-400 font-bold">2</span>
+                                </div>
+                                <div>
+                                    <p>聚焦<span class="font-bold">数据中心、能源转型相关解决方案、数字化生活方式</span></p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                        <h4 class="font-bold text-lg mb-3 flex items-center">
+                            <i class="fas fa-hand-holding-usd text-primary-500 mr-2"></i>
+                            财务策略
+                        </h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <div class="w-6 h-6 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
+                                    <span class="text-primary-600 dark:text-primary-400 font-bold">1</span>
+                                </div>
+                                <div>
+                                    <p>维持约<span class="font-bold">20%</span>的调整后营运利润率</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-6 h-6 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
+                                    <span class="text-primary-600 dark:text-primary-400 font-bold">2</span>
+                                </div>
+                                <div>
+                                    <p>2025-2030年间产生近<span class="font-bold">100亿欧元</span>的自由现金流</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                        <h4 class="font-bold text-lg mb-3 flex items-center">
+                            <i class="fas fa-leaf text-primary-500 mr-2"></i>
+                            可持续发展
+                        </h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <div class="w-6 h-6 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
+                                    <span class="text-primary-600 dark:text-primary-400 font-bold">1</span>
+                                </div>
+                                <div>
+                                    <p>到2030年<span class="font-bold">80%</span>的销售来自生态责任产品</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-6 h-6 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
+                                    <span class="text-primary-600 dark:text-primary-400 font-bold">2</span>
+                                </div>
+                                <div>
+                                    <p>致力于<span class="font-bold">2050年净零排放</span></p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-bold mt-8 mb-4">战略总结</h3>
+                <div class="bg-blue-50 dark:bg-blue-900/30 rounded-xl p-6 border border-blue-200 dark:border-blue-800">
+                    <p>罗格朗展现出一家成熟跨国公司的战略定力与灵活性。它清晰地认识到行业挑战与机遇并存，战略上聚焦于高增长的细分市场（尤其是数据中心），并通过"创新+并购"的双轮驱动模式来追求持续、盈利且负责任的增长。其对数据中心业务的重视程度、投入资源（包括大量并购）以及取得的显著成果，是需要高度关注的信号。罗格朗正在全力打造其在数据中心基础设施领域的综合解决方案能力，从电源保护（UPS）、配电到机架和管理，这无疑会加剧市场竞争。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion Section -->
+        <section class="mb-16 animate-fade-in">
+            <div class="prose prose-lg dark:prose-invert max-w-none">
+                <h2 class="text-3xl font-bold mb-6 text-primary-700 dark:text-primary-400 border-b pb-2">结论与启示</h2>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                    <div class="flex items-start">
+                        <div class="w-12 h-12 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                            <i class="fas fa-lightbulb text-primary-600 dark:text-primary-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <p>罗格朗2024年的财报显示，尽管宏观环境充满挑战，但公司凭借其多元化的业务组合、强大的市场地位、成功的并购整合以及对高增长领域的战略聚焦（特别是数据中心），实现了稳健的业绩。</p>
+                            <p class="mt-4 font-bold">关键启示：</p>
+                            <ul class="list-disc pl-5 space-y-2 mt-2">
+                                <li>数据中心业务已成为罗格朗的核心增长引擎，未来竞争将更加激烈</li>
+                                <li>积极的并购策略是快速增强技术能力和市场覆盖的有效手段</li>
+                                <li>在传统市场低迷时，聚焦高增长领域和持续创新是保持业绩的关键</li>
+                                <li>能源转型和数字化趋势将继续重塑行业格局</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Author Section -->
+    <footer id="contact" class="bg-gray-100 dark:bg-gray-800 py-12">
+        <div class="container mx-auto px-4">
+            <div class="prose prose-lg dark:prose-invert max-w-none">
+                <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md p-8 max-w-3xl mx-auto">
+                    <h2 class="text-2xl font-bold mb-4 text-center">关于作者</h2>
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="w-24 h-24 rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 flex items-center justify-center text-white text-3xl font-bold mb-4 md:mb-0 md:mr-6">
+                            邓
+                        </div>
+                        <div class="text-center md:text-left">
+                            <h3 class="text-xl font-bold">邓晨阳</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">市场发展处</p>
+                            <div class="flex justify-center md:justify-start space-x-4">
+                                <a href="#" class="text-gray-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                                    <i class="fas fa-envelope text-xl"></i>
+                                </a>
+                                <a href="#" class="text-gray-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                                    <i class="fab fa-linkedin text-xl"></i>
+                                </a>
+                                <a href="#" class="text-gray-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                                    <i class="fab fa-twitter text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mt-6 text-sm text-gray-500 dark:text-gray-400 text-center">
+                        © 2024 罗格朗财报分析. 保留所有权利。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-primary-600 text-white rounded-full shadow-lg hidden items-center justify-center transition-opacity duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or use system preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            html.classList.add(savedTheme);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            html.classList.add('dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+                backToTopButton.classList.add('flex');
+            } else {
+                backToTopButton.classList.add('hidden');
+                backToTopButton.classList.remove('flex');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Animation on scroll
+        const animateElements = document.querySelectorAll('.animate-fade-in, .animate-slide-up');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in', 'opacity-100');
+                    if (entry.target.classList.contains('animate-slide-up')) {
+                        entry.target.classList.add('translate-y-0');
+                    }
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        animateElements.forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
